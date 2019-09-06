@@ -50,15 +50,16 @@ minetest.register_craftitem("farming:pot", {
 minetest.register_craft({
 	output = "farming:pot",
 	recipe = {
-		{"group:stick", "default:steel_ingot", "default:steel_ingot"},
-		{"", "default:steel_ingot", "default:steel_ingot"},
+		{"", "", ""},
+		{"group:stick", "default:clay_brick", "default:clay_brick"},
+		{"", "default:clay_brick", "default:clay_brick"},
 	}
 })
 
 -- baking tray
 
 minetest.register_craftitem("farming:baking_tray", {
-	description = S("Baking Tray"),
+	description = S("Bakingware"),
 	inventory_image = "farming_baking_tray.png",
 	groups = {food_baking_tray = 1, flammable = 2},
 })

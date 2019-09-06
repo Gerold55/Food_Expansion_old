@@ -610,6 +610,7 @@ end
 
 
 -- default settings
+farming.apple = true
 farming.carrot = true
 farming.potato = true
 farming.tomato = true
@@ -713,6 +714,7 @@ dofile(farming.path.."/hoes.lua")
 dofile(farming.path.."/grass.lua")
 dofile(farming.path.."/utensils.lua")
 dofile(farming.path.."/bait.lua")
+dofile(farming.path.."/sweets.lua")
 
 -- default crops
 dofile(farming.path.."/crops/wheat.lua")
@@ -720,6 +722,7 @@ dofile(farming.path.."/crops/cotton.lua")
 
 
 dofile(farming.path.."/utensils/presser.lua")
+dofile(farming.path.."/utensils/mixing_bowl.lua")
 
 
 -- helper function
@@ -731,6 +734,7 @@ local function ddoo(file, check)
 end
 
 -- add additional crops and food (if enabled)
+ddoo("apple.lua", farming.apple)
 ddoo("carrot.lua", farming.carrot)
 ddoo("potato.lua", farming.potato)
 ddoo("tomato.lua", farming.tomato)
@@ -811,6 +815,7 @@ ddoo("turnip.lua", farming.turnip)
 ddoo("waterchestnut.lua", farming.waterchestnut)
 
 dofile(farming.path.."/food.lua")
+dofile(farming.path.."/crops/items.lua")
 dofile(farming.path.."/mapgen.lua")
 dofile(farming.path.."/compatibility.lua") -- Farming Plus compatibility
 dofile(farming.path.."/lucky_block.lua")

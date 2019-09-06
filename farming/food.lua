@@ -37,11 +37,31 @@ minetest.register_node("farming:salt", {
 })
 
 minetest.register_craft({
-	type = "cooking",
-	cooktime = 15,
+	type = "shapeless",
 	output = "farming:salt",
-	recipe = "bucket:bucket_water",
-	replacements = {{"bucket:bucket_water", "bucket:bucket_empty"}}
+	recipe = {
+		"farming:pot", "bucket:bucket_water", "",
+		"", "", "",
+		"", "", ""
+	},
+	replacements = {
+		{"bucket:bucket_water", "bucket:bucket_empty"},
+		{"farming:pot", "farming:pot"},
+	}
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:salt",
+	recipe = {
+		"farming:pot", "bucket:bucket_river_water", "",
+		"", "", "",
+		"", "", ""
+	},
+	replacements = {
+		{"bucket:bucket_river_water", "bucket:bucket_empty"},
+		{"farming:pot", "farming:pot"},
+		}
 })
 
 --= Rose Water
