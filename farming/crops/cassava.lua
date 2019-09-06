@@ -26,6 +26,15 @@ minetest.register_craftitem("farming:cassava", {
 	groups = {food_cassava = 1, flammable = 2},
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:cassava", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- cassava definition
 local crop_def = {
 	drawtype = "plantlike",

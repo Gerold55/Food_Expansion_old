@@ -80,6 +80,15 @@ minetest.register_craftitem("farming:beans", {
 	end,
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:beans", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- beans can be used for green dye
 minetest.register_craft({
 	output = "dye:green",

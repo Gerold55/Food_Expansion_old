@@ -31,7 +31,6 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "farming:flour",
 	recipe = {
-		"farming:barley", "farming:barley", "farming:barley",
 		"farming:barley", "farming:mortar_pestle"
 	},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},

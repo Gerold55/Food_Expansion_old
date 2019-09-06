@@ -91,3 +91,42 @@ minetest.register_craft({
 	recipe = "farming:candleberry",
 	burntime = 1,
 })
+
+---------------------------
+--recipes
+
+
+
+minetest.register_craftitem("farming:pressed_wax", {
+	description = ("Pressed Wax"),
+	inventory_image = "farming_wax_pressed.png",
+	on_use = minetest.item_eat(5),
+	groups = {flammable = 2},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:pressed_wax",
+	recipe = {
+		"farming:pot", "farming:candleberry", "",
+		"", "", "",
+		"", "", ""
+	},
+	
+replacements = {
+		{"farming:pot", "farming:pot"},
+	}
+})
+
+minetest.register_craft({
+	output = "farming:pressed_wax 8",
+	recipe = {
+		{"farming:pot", "farming:candleberry", "farming:candleberry"},
+		{"farming:candleberry", "farming:candleberry", "farming:candleberry"},
+		{"farming:candleberry", "farming:candleberry", "farming:candleberry"}
+	},
+	
+replacements = {
+		{"farming:pot", "farming:pot"},
+	}
+})

@@ -108,6 +108,20 @@ minetest.register_craft( {
 	}
 })
 
+-- cocoa powder
+minetest.register_craftitem("farming:chocolate_powder", {
+	description = S("Cocoa Powder"),
+	inventory_image = "farming_chocolate_powder.png",
+	on_use = minetest.item_eat(3),
+})
+
+minetest.register_craft( {
+	output = "farming:chocolate_powder",
+	recipe = {
+		{"farming:mortar_pestle", "group:food_cocoa"},
+	}
+})
+
 -- cocoa definition
 local crop_def = {
 	drawtype = "plantlike",

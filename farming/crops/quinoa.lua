@@ -26,6 +26,15 @@ minetest.register_craftitem("farming:quinoa", {
 	groups = {food_quinoa = 1, flammable = 2},
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:quinoa", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- quinoa definition
 local crop_def = {
 	drawtype = "plantlike",

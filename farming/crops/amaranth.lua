@@ -26,6 +26,15 @@ minetest.register_craftitem("farming:amaranth", {
 	groups = {food_amaranth = 1, flammable = 2},
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:amaranth", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- amaranth definition
 local crop_def = {
 	drawtype = "plantlike",

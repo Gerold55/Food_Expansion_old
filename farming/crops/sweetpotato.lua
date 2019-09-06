@@ -39,10 +39,13 @@ minetest.register_craftitem("farming:baked_sweetpotato", {
 })
 
 minetest.register_craft({
-	type = "cooking",
-	cooktime = 10,
+	type = "shapeless",
 	output = "farming:baked_sweetpotato",
-	recipe = "group:food_sweetpotato"
+	recipe = {
+		"farming:bakeware", "farming:sweetpotato", "",
+		"", "", "",
+		"", "", ""
+	},
 })
 
 -- Potato and cucumber Salad

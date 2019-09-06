@@ -91,3 +91,25 @@ minetest.register_craft({
 	recipe = "farming:asparagus",
 	burntime = 1,
 })
+
+minetest.register_craftitem("farming:asparagus_grilled", {
+	description = ("Grilled Asparagus"),
+	inventory_image = "farming_asparagus_grilled.png",
+	on_use = minetest.item_eat(5),
+	groups = {flammable = 2},
+})
+
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:asparagus_grilled",
+	recipe = {
+		"farming:skillet", "farming:asparagus", "",
+		"", "", "",
+		"", "", ""
+	},
+	
+replacements = {
+		{"farming:skillet", "farming:skillet"},
+	}
+})

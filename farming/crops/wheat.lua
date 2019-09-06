@@ -62,7 +62,6 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "farming:flour",
 	recipe = {
-		"farming:wheat", "farming:wheat", "farming:wheat",
 		"farming:wheat", "farming:mortar_pestle"
 	},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
@@ -76,11 +75,37 @@ minetest.register_craftitem("farming:bread", {
 	groups = {food_bread = 1, flammable = 2},
 })
 
+minetest.register_craftitem("farming:dough", {
+	description = S("Dough"),
+	inventory_image = "farming_dough.png",
+	groups = {food_bread = 1, flammable = 2},
+})
+
 minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
 	output = "farming:bread",
 	recipe = "farming:flour"
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:dough",
+	recipe = {
+		"farming:mixingbowl", "bucket:bucket_water", "",
+		"farming:flour", "farming:salt", ""
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:dough",
+	recipe = {
+		"farming:mixingbowl", "bucket:bucket_river_water", "",
+		"farming:flour", "farming:salt", ""
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
 })
 
 -- sliced bread

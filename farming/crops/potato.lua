@@ -47,6 +47,15 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:potato", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- potato definition
 local crop_def = {
 	drawtype = "plantlike",

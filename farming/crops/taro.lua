@@ -91,3 +91,12 @@ minetest.register_craft({
 	recipe = "farming:taro",
 	burntime = 1,
 })
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:taro", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})

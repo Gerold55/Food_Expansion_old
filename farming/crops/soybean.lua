@@ -91,3 +91,21 @@ minetest.register_craft({
 	recipe = "farming:soybean",
 	burntime = 1,
 })
+
+minetest.register_craftitem("farming:tofu_silken", {
+	description = S("Silken Tofu"),
+	inventory_image = "farming_tofu_silken.png",
+	groups = {food_soybean = 1, flammable = 2},
+})
+
+minetest.register_craftitem("farming:tofu_firm", {
+	description = S("Firm Tofu"),
+	inventory_image = "farming_tofu_firm.png",
+	groups = {food_soybean = 1, flammable = 2},
+})
+
+minetest.register_craftitem("farming:milk_soy", {
+	description = S("Soy Milk"),
+	inventory_image = "farming_milk_soy.png",
+	groups = {food_soybean = 1, flammable = 2},
+})

@@ -26,6 +26,15 @@ minetest.register_craftitem("farming:chickpea", {
 	groups = {food_chickpea = 1, flammable = 2},
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:chickpea", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- chickpea definition
 local crop_def = {
 	drawtype = "plantlike",

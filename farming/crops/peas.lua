@@ -26,6 +26,15 @@ minetest.register_craft({
 	recipe = {"farming:pea_pod"}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:peas", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- pea soup
 minetest.register_craftitem("farming:pea_soup", {
 	description = S("Pea Soup"),

@@ -26,6 +26,15 @@ minetest.register_craftitem("farming:millet", {
 	groups = {food_millet = 1, flammable = 2},
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:millet", "farming:mortar_pestle"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+})
+
 -- millet definition
 local crop_def = {
 	drawtype = "plantlike",

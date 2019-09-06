@@ -21,7 +21,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "farming:flour",
 	recipe = {
-		"farming:rye", "farming:rye", "farming:rye", "farming:rye",
+		"farming:rye",
 		"farming:mortar_pestle"
 	},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
@@ -45,7 +45,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "farming:flour",
 	recipe = {
-		"farming:oat", "farming:oat", "farming:oat", "farming:oat",
+		"farming:oat",
 		"farming:mortar_pestle"
 	},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
@@ -82,7 +82,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "farming:rice_flour",
 	recipe = {
-		"farming:rice", "farming:rice", "farming:rice", "farming:rice",
+		"farming:rice",
 		"farming:mortar_pestle"
 	},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
