@@ -87,7 +87,7 @@ minetest.register_node("farming:pepper_1", table.copy(crop_def))
 crop_def.tiles = {"crops_pepper_plant_2.png"}
 minetest.register_node("farming:pepper_2", table.copy(crop_def))
 
--- stage 6
+-- stage 3
 crop_def.tiles = {"crops_pepper_plant_3.png"}
 crop_def.drop = {
 	items = {
@@ -97,9 +97,8 @@ crop_def.drop = {
 }
 minetest.register_node("farming:pepper_3", table.copy(crop_def))
 
--- stage 7 (final)
+-- stage 4
 crop_def.tiles = {"crops_pepper_plant_4.png"}
-crop_def.groups.growing = 0
 crop_def.drop = {
 	items = {
 		{items = {'farming:pepper'}, rarity = 1},
@@ -109,6 +108,31 @@ crop_def.drop = {
 	}
 }
 minetest.register_node("farming:pepper_4", table.copy(crop_def))
+
+-- stage5
+crop_def.tiles = {"crops_pepper_plant_5.png"}
+crop_def.drop = {
+	items = {
+		{items = {'farming:pepper'}, rarity = 1},
+		{items = {'farming:pepper'}, rarity = 3},
+		{items = {'farming:seed_pepper'}, rarity = 1},
+		{items = {'farming:seed_pepper'}, rarity = 3},
+	}
+}
+minetest.register_node("farming:pepper_5", table.copy(crop_def))
+
+-- stage 6 (final)
+crop_def.tiles = {"crops_pepper_plant_6.png"}
+crop_def.groups.growing = 0
+crop_def.drop = {
+	items = {
+		{items = {'farming:pepper'}, rarity = 1},
+		{items = {'farming:pepper'}, rarity = 3},
+		{items = {'farming:seed_pepper'}, rarity = 1},
+		{items = {'farming:seed_pepper'}, rarity = 3},
+	}
+}
+minetest.register_node("farming:pepper_6", table.copy(crop_def))
 
 -- add to registered_plants
 farming.registered_plants["farming:pepper"] = {

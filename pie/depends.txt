@@ -1,5 +1,0 @@
-default
-hunger?
-hbhunger?
-stamina?
-lucky_block?

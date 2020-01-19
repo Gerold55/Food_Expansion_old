@@ -3,7 +3,7 @@ local S = farming.intllib
 
 -- cucumber seeds
 minetest.register_node("farming:seed_cucumber", {
-	description = S("cucumber Seed"),
+	description = S("Cucumber Seed"),
 	tiles = {"farming_cucumber_seed.png"},
 	inventory_image = "farming_cucumber_seed.png",
 	wield_image = "farming_cucumber_seed.png",
@@ -21,7 +21,7 @@ minetest.register_node("farming:seed_cucumber", {
 
 -- harvested cucumber
 minetest.register_craftitem("farming:cucumber", {
-	description = S("cucumber"),
+	description = S("Cucumber"),
 	inventory_image = "farming_cucumber.png",
 	groups = {food_cucumber = 1, flammable = 2},
 })

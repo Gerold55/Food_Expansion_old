@@ -5,15 +5,14 @@
 
 local S = farming.intllib
 
--- pumpkin slice
-minetest.register_craftitem("farming:pumpkin_slice", {
-	description = S("Pumpkin Slice"),
-	inventory_image = "farming_pumpkin_slice.png",
-	groups = {food_pumpkin_slice = 1, flammable = 2},
+-- pumpkin seeds
+minetest.register_craftitem("farming:pumpkin_seeds", {
+	description = S("Pumpkin Seeds"),
+	inventory_image = "farming_pumpkin_seeds.png",
+	groups = {seeds = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:pumpkin_1")
 	end,
-	on_use = minetest.item_eat(2),
 })
 
 minetest.register_craft({
@@ -24,9 +23,16 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craftitem("farming:pumpkin_slice", {
+	description = S("Pumpkin Slice"),
+	inventory_image = "farming_pumpkin_slice.png",
+	on_use = minetest.item_eat(8),
+	groups = {food_bread = 1, flammable = 2},
+})
+
 minetest.register_craft({
 	type = "shapeless",
-	output = "farming:pumpkin_slice 4",
+	output = "farming:pumpkin_slice 4, farming:pumpkin_seeds 4",
 	recipe = {"farming:pumpkin", "farming:cutting_board"},
 	replacements = {{"farming:cutting_board", "farming:cutting_board"}},
 })
@@ -35,12 +41,12 @@ minetest.register_craft({
 minetest.register_node("farming:jackolantern", {
 	description = S("Jack 'O Lantern (punch to turn on and off)"),
 	tiles = {
-		"farming_pumpkin_top.png",
-		"farming_pumpkin_top.png",
-		"farming_pumpkin_side.png",
-		"farming_pumpkin_side.png",
-		"farming_pumpkin_side.png",
-		"farming_pumpkin_face_off.png"
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png"
 	},
 	paramtype2 = "facedir",
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
@@ -53,12 +59,12 @@ minetest.register_node("farming:jackolantern", {
 
 minetest.register_node("farming:jackolantern_on", {
 	tiles = {
-		"farming_pumpkin_top.png",
-		"farming_pumpkin_top.png",
-		"farming_pumpkin_side.png",
-		"farming_pumpkin_side.png",
-		"farming_pumpkin_side.png",
-		"farming_pumpkin_face_on.png"
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png",
+		"farming_pumpkin_jack_o_lantern.png"
 	},
 	light_source = default.LIGHT_MAX - 1,
 	paramtype2 = "facedir",
@@ -163,49 +169,18 @@ minetest.register_node("farming:pumpkin_2", table.copy(crop_def))
 crop_def.tiles = {"farming_pumpkin_3.png"}
 minetest.register_node("farming:pumpkin_3", table.copy(crop_def))
 
--- stage 4
+-- stage 4 (final)
+
 crop_def.tiles = {"farming_pumpkin_4.png"}
-minetest.register_node("farming:pumpkin_4", table.copy(crop_def))
-
--- stage 5
-crop_def.tiles = {"farming_pumpkin_5.png"}
-minetest.register_node("farming:pumpkin_5", table.copy(crop_def))
-
--- stage 6
-crop_def.tiles = {"farming_pumpkin_6.png"}
-minetest.register_node("farming:pumpkin_6", table.copy(crop_def))
-
--- stage 7
-crop_def.tiles = {"farming_pumpkin_7.png"}
-minetest.register_node("farming:pumpkin_7", table.copy(crop_def))
-
--- stage 8 (final)
---[[
-crop_def.tiles = {"farming_pumpkin_8.png"}
 crop_def.groups.growing = 0
 crop_def.drop = {
 	items = {
-		{items = {'farming:pumpkin_slice 9'}, rarity = 1},
+		{items = {'farming:pumpkin_slice 9, farming:pumpkin_seeds 4'}, rarity = 1},
 	}
 }
-minetest.register_node("farming:pumpkin_8", table.copy(crop_def))
-]]
+minetest.register_node("farming:pumpkin_4", table.copy(crop_def))
 
-minetest.register_node("farming:pumpkin_8", {
-	description = S("Pumpkin"),
-	tiles = {
-		"farming_pumpkin_top.png",
-		"farming_pumpkin_top.png",
-		"farming_pumpkin_side.png"
-	},
-	groups = {
-		food_pumpkin = 1, choppy = 1, oddly_breakable_by_hand = 1,
-		flammable = 2, plant = 1
-	},
-	sounds = default.node_sound_wood_defaults(),
-})
 
-minetest.register_alias("farming:pumpkin", "farming:pumpkin_8")
 
 -- add to registered_plants
 farming.registered_plants["farming:pumpkin"] = {

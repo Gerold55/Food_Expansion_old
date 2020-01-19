@@ -88,30 +88,8 @@ minetest.register_node("farming:carrot_2", table.copy(crop_def))
 crop_def.tiles = {"farming_carrot_3.png"}
 minetest.register_node("farming:carrot_3", table.copy(crop_def))
 
--- stage 4
+-- stage 4 (final)
 crop_def.tiles = {"farming_carrot_4.png"}
-minetest.register_node("farming:carrot_4", table.copy(crop_def))
-
--- stage 5
-crop_def.tiles = {"farming_carrot_5.png"}
-minetest.register_node("farming:carrot_5", table.copy(crop_def))
-
--- stage 6
-crop_def.tiles = {"farming_carrot_6.png"}
-minetest.register_node("farming:carrot_6", table.copy(crop_def))
-
--- stage 7
-crop_def.tiles = {"farming_carrot_7.png"}
-crop_def.drop = {
-	items = {
-		{items = {'farming:carrot'}, rarity = 1},
-		{items = {'farming:carrot 2'}, rarity = 3},
-	}
-}
-minetest.register_node("farming:carrot_7", table.copy(crop_def))
-
--- stage 8 (final)
-crop_def.tiles = {"farming_carrot_8.png"}
 crop_def.groups.growing = 0
 crop_def.drop = {
 	items = {
@@ -119,7 +97,7 @@ crop_def.drop = {
 		{items = {'farming:carrot 3'}, rarity = 2},
 	}
 }
-minetest.register_node("farming:carrot_8", table.copy(crop_def))
+minetest.register_node("farming:carrot_4", table.copy(crop_def))
 
 -- add to registered_plants
 farming.registered_plants["farming:carrot"] = {

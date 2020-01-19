@@ -2,13 +2,13 @@
 local S = farming.intllib
 
 -- sunflower seeds
-minetest.register_node("farming:seed_sunflower", {
-	description = S("Sunflower Seed"),
-	tiles = {"farming_sunflower_seed.png"},
-	inventory_image = "farming_sunflower_seed.png",
-	wield_image = "farming_sunflower_seed.png",
+minetest.register_node("farming:seeds_sunflower", {
+	description = S("Sunflower Seeds"),
+	tiles = {"farming_sunflower_seeds.png"},
+	inventory_image = "farming_sunflower_seeds.png",
+	wield_image = "farming_sunflower_seeds.png",
 	drawtype = "signlike",
-	groups = {seed = 1, snappy = 3, attached_node = 1},
+	groups = {seed = 1, snappy = 3, attached_node = 1, food_sunflower = 1,},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	walkable = false,
@@ -20,19 +20,12 @@ minetest.register_node("farming:seed_sunflower", {
 })
 
 -- harvested sunflower
-minetest.register_craftitem("farming:sunflower_seeds", {
-	description = S("Sunflower Seeds"),
-	inventory_image = "farming_sunflower.png",
-	groups = {food_sunflower = 1, flammable = 2},
-})
 
 -- sunflower definition
 local crop_def = {
 	drawtype = "plantlike",
 	tiles = {"farming_sunflower_1.png"},
 	paramtype = "light",
-	paramtype2 = "meshoptions",
-	place_param2 = 3,
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,

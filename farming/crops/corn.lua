@@ -3,10 +3,10 @@ local S = farming.intllib
 
 -- corn seeds
 minetest.register_node("farming:seed_corn", {
-	description = S("Corn Seed"),
-	tiles = {"farming_corn_seed.png"},
-	inventory_image = "farming_corn_seed.png",
-	wield_image = "farming_corn_seed.png",
+	description = S("Corn Kernels"),
+	tiles = {"farming_corn_kernels.png"},
+	inventory_image = "farming_corn_kernels.png",
+	wield_image = "farming_corn_kernels.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1},
 	paramtype = "light",

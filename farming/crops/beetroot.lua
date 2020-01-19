@@ -1,29 +1,21 @@
 
 local S = farming.intllib
 
--- beet seeds
-minetest.register_node("farming:seed_beet", {
-	description = S("Beet Seed"),
-	tiles = {"farming_beet_seed.png"},
-	inventory_image = "farming_beet_seed.png",
-	wield_image = "farming_beet_seed.png",
+-- harvested beet
+minetest.register_craftitem("farming:beet", {
+	description = S("Beet"),
+	inventory_image = "farming_beet.png",
 	drawtype = "signlike",
-	groups = {seed = 1, snappy = 3, attached_node = 1},
+	groups = {seed = 1, snappy = 3, attached_node = 1, food_beet = 1},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
+	on_use = minetest.item_eat(1),
 	walkable = false,
 	sunlight_propagates = true,
 	selection_box = farming.select,
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:beet_1")
 	end,
-})
-
--- harvested beet
-minetest.register_craftitem("farming:beet", {
-	description = S("Beet"),
-	inventory_image = "farming_beet.png",
-	groups = {food_beet = 1, flammable = 2},
 })
 
 -- beet definition
@@ -78,7 +70,7 @@ minetest.register_node("farming:beet_4", table.copy(crop_def))
 -- add to registered_plants
 farming.registered_plants["farming:beet"] = {
 	crop = "farming:beet",
-	seed = "farming:seed_beet",
+	seed = "farming:beet",
 	minlight = 13,
 	maxlight = 15,
 	steps = 7

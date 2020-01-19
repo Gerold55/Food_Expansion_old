@@ -610,85 +610,25 @@ end
 
 
 -- default settings
-farming.apple = true
 farming.carrot = true
 farming.potato = true
 farming.tomato = true
 farming.cucumber = true
 farming.corn = true
-farming.coffee = true
 farming.melon = true
 farming.pumpkin = true
-farming.cocoa = true
 farming.raspberry = true
 farming.blueberry = true
-farming.rhubarb = true
-farming.beans = true
-farming.grapes = true
-farming.barley = true
-farming.chili = true
-farming.sisal = true
 farming.garlic = true
 farming.onion = true
 farming.pepper = true
 farming.pineapple = true
-farming.peas = true
 farming.beetroot = true
-farming.grains = true
 farming.agave = true
-farming.amaranth = true
-farming.arrowroot = true
-farming.asparagus = true
-farming.bambooshoot = true
-farming.blackberry = true
-farming.broccoli = true
-farming.brusselsprout = true
 farming.cabbage = true
-farming.cactusfruit = true
-farming.candleberry = true
-farming.cantaloupe = true
-farming.celery = true
-farming.chickpea = true
-farming.cassava = true
-farming.cauliflower = true
-farming.cranberry = true
-farming.greengrape = true
-farming.curryleaf = true
-farming.eggplant = true
-farming.elderberry = true
 farming.flax = true
-farming.gardens = true
-farming.gigapickle = true
-farming.ginger = true
-farming.jicama = true
-farming.juniper = true
-farming.kale = true
-farming.jute = true
-farming.kiwi = true
-farming.kenaf = true
-farming.kohlrabi = true
-farming.leek = true
-farming.lentil = true
-farming.lettuce = true
-farming.mulberry = true
-farming.mustardseed = true
-farming.okra = true
-farming.peanut = true
-farming.quinoa = true
-farming.radish = true
-farming.rutabaga = true
-farming.scallion = true
-farming.seaweed = true
-farming.sesameseeds = true
-farming.soybean = true
-farming.spiceleaf = true
-farming.strawberry = true
 farming.sunflower = true
-farming.sweetpotato = true
-farming.taro = true
-farming.tealeaf = true
-farming.turnip = true
-farming.waterchestnut = true
+farming.pepper = true
 farming.rarety = 0.002 -- 0.006
 
 
@@ -712,17 +652,12 @@ end
 dofile(farming.path.."/soil.lua")
 dofile(farming.path.."/hoes.lua")
 dofile(farming.path.."/grass.lua")
-dofile(farming.path.."/utensils.lua")
-dofile(farming.path.."/bait.lua")
-dofile(farming.path.."/sweets.lua")
-
--- default crops
-dofile(farming.path.."/crops/wheat.lua")
-dofile(farming.path.."/crops/cotton.lua")
+--dofile(farming.path.."/utensils.lua")
+--dofile(farming.path.."/sweets.lua")
 
 
-dofile(farming.path.."/utensils/presser.lua")
-dofile(farming.path.."/utensils/mixing_bowl.lua")
+--dofile(farming.path.."/utensils/presser.lua")
+--dofile(farming.path.."/utensils/mixing_bowl.lua")
 
 
 -- helper function
@@ -734,85 +669,23 @@ local function ddoo(file, check)
 end
 
 -- add additional crops and food (if enabled)
-ddoo("apple.lua", farming.apple)
 ddoo("carrot.lua", farming.carrot)
 ddoo("potato.lua", farming.potato)
 ddoo("tomato.lua", farming.tomato)
 ddoo("cucumber.lua", farming.cucumber)
 ddoo("corn.lua", farming.corn)
-ddoo("coffee.lua", farming.coffee)
 ddoo("melon.lua", farming.melon)
 ddoo("pumpkin.lua", farming.pumpkin)
-ddoo("cocoa.lua", farming.cocoa)
 ddoo("raspberry.lua", farming.raspberry)
 ddoo("blueberry.lua", farming.blueberry)
-ddoo("rhubarb.lua", farming.rhubarb)
-ddoo("beans.lua", farming.beans)
-ddoo("grapes.lua", farming.grapes)
-ddoo("barley.lua", farming.barley)
-ddoo("sisal.lua", farming.sisal)
 ddoo("garlic.lua", farming.garlic)
 ddoo("onion.lua", farming.onion)
-ddoo("pepper.lua", farming.pepper)
-ddoo("pineapple.lua", farming.pineapple)
-ddoo("peas.lua", farming.peas)
 ddoo("beetroot.lua", farming.beetroot)
-ddoo("chili.lua", farming.chili)
-ddoo("ryeoatrice.lua", farming.grains)
 ddoo("agave.lua", farming.agave)
-ddoo("amaranth.lua", farming.amaranth)
-ddoo("arrowroot.lua", farming.arrowroot)
-ddoo("asparagus.lua", farming.asparagus)
-ddoo("bambooshoot.lua", farming.bambooshoot)
-ddoo("blackberry.lua", farming.blackberry)
-ddoo("broccoli.lua", farming.broccoli)
-ddoo("brusselsprout.lua", farming.brusselsprout)
 ddoo("cabbage.lua", farming.cabbage)
-ddoo("cactusfruit.lua", farming.cactusfruit)
-ddoo("candleberry.lua", farming.candleberry)
-ddoo("cantaloupe.lua", farming.cantaloupe)
-ddoo("celery.lua", farming.celery)
-ddoo("chickpea.lua", farming.chickpea)
-ddoo("cassava.lua", farming.cassava)
-ddoo("cauliflower.lua", farming.cauliflower)
-ddoo("cranberry.lua", farming.cranberry)
-ddoo("greengrapes.lua", farming.greengrape)
-ddoo("curryleaf.lua", farming.curryleaf)
-ddoo("eggplant.lua", farming.eggplant)
-ddoo("elderberry.lua", farming.elderberry)
 ddoo("flax.lua", farming.flax)
-ddoo("gardens.lua", farming.gardens)
-ddoo("gigapickle.lua", farming.gigapickle)
-ddoo("ginger.lua", farming.ginger)
-ddoo("jicama.lua", farming.jicama)
-ddoo("juniper.lua", farming.juniper)
-ddoo("kale.lua", farming.kale)
-ddoo("jute.lua", farming.jute)
-ddoo("kiwi.lua", farming.kiwi)
-ddoo("kenaf.lua", farming.kenaf)
-ddoo("kohlrabi.lua", farming.kohlrabi)
-ddoo("leek.lua", farming.leek)
-ddoo("lentil.lua", farming.lentil)
-ddoo("lettuce.lua", farming.lettuce)
-ddoo("mulberry.lua", farming.mulberry)
-ddoo("mustardseed.lua", farming.mustardseed)
-ddoo("okra.lua", farming.okra)
-ddoo("peanut.lua", farming.peanut)
-ddoo("quinoa.lua", farming.quinoa)
-ddoo("radish.lua", farming.radish)
-ddoo("rutabaga.lua", farming.rutabaga)
-ddoo("scallion.lua", farming.scallion)
-ddoo("seaweed.lua", farming.seaweed)
-ddoo("sesameseeds.lua", farming.sesameseeds)
-ddoo("soybean.lua", farming.soybean)
-ddoo("spiceleaf.lua", farming.spiceleaf)
-ddoo("strawberry.lua", farming.strawberry)
 ddoo("sunflower.lua", farming.sunflower)
-ddoo("sweetpotato.lua", farming.sweetpotato)
-ddoo("taro.lua", farming.taro)
-ddoo("tealeaf.lua", farming.tealeaf)
-ddoo("turnip.lua", farming.turnip)
-ddoo("waterchestnut.lua", farming.waterchestnut)
+ddoo("pepper.lua", farming.pepper)
 
 dofile(farming.path.."/food.lua")
 dofile(farming.path.."/crops/items.lua")

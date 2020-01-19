@@ -20,7 +20,7 @@ minetest.register_craftitem("farming:potato", {
 -- baked potato
 minetest.register_craftitem("farming:baked_potato", {
 	description = S("Baked Potato"),
-	inventory_image = "farming_baked_potato.png",
+	inventory_image = "farming_potato_baked.png",
 	on_use = minetest.item_eat(6),
 })
 

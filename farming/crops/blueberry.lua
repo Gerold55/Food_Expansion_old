@@ -2,76 +2,37 @@
 local S = farming.intllib
 
 -- blueberry seeds
-minetest.register_node("farming:seed_blueberry", {
-	description = S("Blueberry Seed"),
-	tiles = {"farming_blueberry_seed.png"},
-	inventory_image = "farming_blueberry_seed.png",
-	wield_image = "farming_blueberry_seed.png",
+minetest.register_craftitem("farming:blueberries", {
+	description = S("Blueberry"),
+	inventory_image = "farming_blueberries.png",
+	wield_image = "farming_blueberries.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	walkable = false,
 	sunlight_propagates = true,
+	on_use = minetest.item_eat(1),
+	groups = {food_blueberry = 1, flammable = 2},
 	selection_box = farming.select,
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:blueberry_1")
 	end,
 })
 
--- harvested blueberry_pepper
-minetest.register_craftitem("farming:blueberries", {
-	description = S("Blueberry"),
-	inventory_image = "farming_blueberries.png",
-	groups = {food_blueberry_pepper = 1, flammable = 2},
-})
-
 -- blueberry muffin (thanks to sosogirl123 @ deviantart.com for muffin image)
 
-minetest.register_craftitem("farming:muffin_blueberry", {
-	description = S("Blueberry Muffin"),
-	inventory_image = "farming_blueberry_muffin.png",
-	on_use = minetest.item_eat(2),
-})
 
-minetest.register_craftitem("farming:juice_blueberry", {
-	description = S("Blueberry Juice"),
-	inventory_image = "farming_blueberry_juice.png",
-	on_use = minetest.item_eat(2),
-})
-
-minetest.register_craft({
-	output = "farming:muffin_blueberry 2",
-	recipe = {
-		{"group:food_blueberries", "group:food_bread", "group:food_blueberries"},
-	}
-})
 
 -- Blueberry Pie
 
-minetest.register_craftitem("farming:blueberry_pie", {
-	description = S("Blueberry Pie"),
-	inventory_image = "farming_blueberry_pie.png",
-	on_use = minetest.item_eat(6),
-})
 
-minetest.register_craft({
-	output = "farming:blueberry_pie",
-	type = "shapeless",
-	recipe = {
-		"group:food_flour", "group:food_sugar",
-		"group:food_blueberries", "group:food_baking_tray"
-	},
-	replacements = {{"group:food_baking_tray", "farming:baking_tray"}}
-})
 
 -- blueberry_pepper definition
 local crop_def = {
 	drawtype = "plantlike",
 	tiles = {"farming_blueberry_1.png"},
 	paramtype = "light",
-	paramtype2 = "meshoptions",
-	place_param2 = 3,
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,

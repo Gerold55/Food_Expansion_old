@@ -2,15 +2,22 @@
 local S = farming.intllib
 
 -- melon
+minetest.register_craftitem("farming:melon_seeds", {
+	description = S("Melon Seeds"),
+	inventory_image = "farming_melon_seeds.png",
+	on_place = function(itemstack, placer, pointed_thing)
+		return farming.place_seed(itemstack, placer, pointed_thing, "farming:melon_1")
+	end,
+})
+
 minetest.register_craftitem("farming:melon_slice", {
 	description = S("Melon Slice"),
 	inventory_image = "farming_melon_slice.png",
 	groups = {food_melon_slice = 1, flammable = 3},
-	on_place = function(itemstack, placer, pointed_thing)
-		return farming.place_seed(itemstack, placer, pointed_thing, "farming:melon_1")
-	end,
-	on_use = minetest.item_eat(2),
+	on_use = minetest.item_eat(5),
 })
+
+
 
 minetest.register_craft({
 	output = "farming:melon_8",
@@ -55,32 +62,17 @@ minetest.register_node("farming:melon_2", table.copy(crop_def))
 crop_def.tiles = {"farming_melon_3.png"}
 minetest.register_node("farming:melon_3", table.copy(crop_def))
 
--- stage 4
+-- stage 4 (final)
+
 crop_def.tiles = {"farming_melon_4.png"}
+crop_def.groups.growing = 0
+crop_def.drop = {
+	items = {
+		{items = {'farming:melon_slice 9'}, rarity = 1},
+	}
+}
 minetest.register_node("farming:melon_4", table.copy(crop_def))
 
--- stage 5
-crop_def.tiles = {"farming_melon_5.png"}
-minetest.register_node("farming:melon_5", table.copy(crop_def))
-
--- stage 6
-crop_def.tiles = {"farming_melon_6.png"}
-minetest.register_node("farming:melon_6", table.copy(crop_def))
-
--- stage 7
-crop_def.tiles = {"farming_melon_7.png"}
-minetest.register_node("farming:melon_7", table.copy(crop_def))
-
--- stage 8 (final)
-crop_def.drawtype = "nodebox"
-crop_def.description = S("Melon")
-crop_def.tiles = {"farming_melon_top.png", "farming_melon_top.png", "farming_melon_side.png"}
-crop_def.selection_box = {-.5, -.5, -.5, .5, .5, .5}
-crop_def.walkable = true
-crop_def.groups = {
-	food_melon = 1, snappy = 1, oddly_breakable_by_hand = 1,
-	flammable = 2, plant = 1
-}
 --crop_def.drop = "farming:melon_slice 9"
 crop_def.drop = "farming:melon_8"
 minetest.register_node("farming:melon_8", table.copy(crop_def))
