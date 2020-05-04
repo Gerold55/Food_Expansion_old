@@ -199,6 +199,16 @@ local function presser_node_timer(pos, elapsed)
 			inv:remove_item("src", "farming:tofu_silken")
 			inv:add_item("dst", "farming:tofu_firm") 
 	end
+	
+	if inv:contains_item("src", "farming:seed_cotton")then
+			inv:remove_item("src", "farming:seed_cotton")
+			inv:add_item("dst", "farming:cooking_oil") 
+	end
+	
+	if inv:contains_item("src", "farming:pumpkin_seeds")then
+			inv:remove_item("src", "farming:pumpkin_seeds")
+			inv:add_item("dst", "farming:cooking_oil") 
+	end
 
 	
 	-- Check if we have cookable content

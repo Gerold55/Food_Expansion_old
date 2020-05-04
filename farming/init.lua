@@ -17,6 +17,16 @@ farming = {
 }
 
 
+old_expansion = {
+    growNodes = {"default:dirt","default:dirt_with_grass","default:dirt_with_snow"},
+    growthSources = {},
+    schems = {},
+    types = { logs = {"cinnamon", "paperbark"}}
+}
+old_expansion.growthSources.names = {"default:dirt", "default:dirt_with_grass", "default:water_source", "default:water_flowing", "default:ice", "default:dirt_with_snow",}
+old_expansion.growthSources.values = {6, 4, 4, 3, -6, 2}
+
+
 local creative_mode_cache = minetest.settings:get_bool("creative_mode")
 
 function farming.is_creative(name)
@@ -615,6 +625,7 @@ farming.potato = true
 farming.tomato = true
 farming.cucumber = true
 farming.corn = true
+farming.cotton = true
 farming.melon = true
 farming.pumpkin = true
 farming.raspberry = true
@@ -629,6 +640,7 @@ farming.cabbage = true
 farming.flax = true
 farming.sunflower = true
 farming.pepper = true
+farming.wheat = true
 farming.rarety = 0.002 -- 0.006
 
 
@@ -652,14 +664,18 @@ end
 dofile(farming.path.."/soil.lua")
 dofile(farming.path.."/hoes.lua")
 dofile(farming.path.."/grass.lua")
---dofile(farming.path.."/utensils.lua")
+dofile(farming.path.."/fruit.lua")
 --dofile(farming.path.."/sweets.lua")
 
 
---dofile(farming.path.."/utensils/presser.lua")
+dofile(farming.path.."/utensils/presser.lua")
 --dofile(farming.path.."/utensils/mixing_bowl.lua")
 
 
+dofile(farming.path.."/trees/support.lua")
+dofile(farming.path.."/trees/nodereg.lua")
+dofile(farming.path.."/trees/itemreg.lua")
+dofile(farming.path.."/trees/framework.lua")
 -- helper function
 local function ddoo(file, check)
 
@@ -674,6 +690,7 @@ ddoo("potato.lua", farming.potato)
 ddoo("tomato.lua", farming.tomato)
 ddoo("cucumber.lua", farming.cucumber)
 ddoo("corn.lua", farming.corn)
+ddoo("cotton.lua", farming.cotton)
 ddoo("melon.lua", farming.melon)
 ddoo("pumpkin.lua", farming.pumpkin)
 ddoo("raspberry.lua", farming.raspberry)
@@ -686,6 +703,7 @@ ddoo("cabbage.lua", farming.cabbage)
 ddoo("flax.lua", farming.flax)
 ddoo("sunflower.lua", farming.sunflower)
 ddoo("pepper.lua", farming.pepper)
+ddoo("wheat.lua", farming.wheat)
 
 dofile(farming.path.."/food.lua")
 dofile(farming.path.."/crops/items.lua")

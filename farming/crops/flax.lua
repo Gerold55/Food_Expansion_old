@@ -3,10 +3,10 @@ local S = farming.intllib
 
 -- flax seeds
 minetest.register_node("farming:seed_flax", {
-	description = S("Flax Seed"),
-	tiles = {"farming_flax_seed.png"},
-	inventory_image = "farming_flax_seed.png",
-	wield_image = "farming_flax_seed.png",
+	description = S("Flax"),
+	tiles = {"farming_flax.png"},
+	inventory_image = "farming_flax.png",
+	wield_image = "farming_flax.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1},
 	paramtype = "light",
@@ -17,13 +17,6 @@ minetest.register_node("farming:seed_flax", {
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:flax_1")
 	end,
-})
-
--- harvested flax
-minetest.register_craftitem("farming:flax", {
-	description = S("Flax"),
-	inventory_image = "farming_flax.png",
-	groups = {food_flax = 1, flammable = 2},
 })
 
 -- flax definition
@@ -56,8 +49,7 @@ minetest.register_node("farming:flax_2", table.copy(crop_def))
 crop_def.tiles = {"farming_flax_3.png"}
 crop_def.drop = {
 	items = {
-		{items = {'farming:flax'}, rarity = 2},
-		{items = {'farming:seed_flax'}, rarity = 1},
+		{items = {'farming:seed_flax'}, rarity = 2},
 	}
 }
 minetest.register_node("farming:flax_3", table.copy(crop_def))
@@ -67,8 +59,6 @@ crop_def.tiles = {"farming_flax_4.png"}
 crop_def.groups.growing = 0
 crop_def.drop = {
 	items = {
-		{items = {'farming:flax'}, rarity = 1},
-		{items = {'farming:flax'}, rarity = 3},
 		{items = {'farming:seed_flax'}, rarity = 1},
 		{items = {'farming:seed_flax'}, rarity = 3},
 	}
@@ -76,8 +66,8 @@ crop_def.drop = {
 minetest.register_node("farming:flax_4", table.copy(crop_def))
 
 -- add to registered_plants
-farming.registered_plants["farming:flax"] = {
-	crop = "farming:flax",
+farming.registered_plants["farming:seed_flax"] = {
+	crop = "farming:seed_flax",
 	seed = "farming:seed_flax",
 	minlight = 13,
 	maxlight = 15,
@@ -88,6 +78,6 @@ farming.registered_plants["farming:flax"] = {
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "farming:flax",
+	recipe = "farming:seed_flax",
 	burntime = 1,
 })

@@ -99,3 +99,10 @@ minetest.register_craft({
 	recipe = "farming:corn",
 	burntime = 1,
 })
+
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "farming:corn_cob",
+	recipe = "farming:corn"
+})

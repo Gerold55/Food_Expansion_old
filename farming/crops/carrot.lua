@@ -18,17 +18,11 @@ minetest.register_craftitem("farming:carrot", {
 })
 
 -- carrot juice
-minetest.register_craftitem("farming:carrot_juice", {
-	description = S("Carrot Juice"),
-	inventory_image = "farming_carrot_juice.png",
-	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {vessel = 1},
-})
-
 minetest.register_craftitem("farming:juice_carrot", {
 	description = S("Carrot Juice"),
 	inventory_image = "farming_juice_carrot.png",
-	groups = {food_blackberry = 1, flammable = 2},
+	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
+	groups = {food_blackberry = 1, flammable = 2, vessel = 1},
 	on_use = minetest.item_eat(2),
 })
 
@@ -46,7 +40,7 @@ minetest.register_craft({
 -- golden carrot
 minetest.register_craftitem("farming:carrot_gold", {
 	description = S("Golden Carrot"),
-	inventory_image = "farming_carrot_gold.png",
+	inventory_image = "farming_carrot_golden.png",
 	on_use = minetest.item_eat(6),
 })
 
@@ -54,7 +48,7 @@ minetest.register_craft({
 	output = "farming:carrot_gold",
 	recipe = {
 		{"", "default:gold_lump", ""},
-		{"default:gold_lump", "group:food_carrot", "default:gold_lump"},
+		{"default:gold_lump", "farming:carrot", "default:gold_lump"},
 		{"", "default:gold_lump", ""},
 	}
 })

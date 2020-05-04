@@ -1,0 +1,30 @@
+local n1 = { name = "air", prob = 0 }
+local n2 = { name = "food_expansion:pod" }
+local n3 = { name = "food_expansion:leaves1" }
+local n4 = { name = "food_expansion:dev" }
+
+local schem = {
+	yslice_prob = {
+		
+	},
+	size = {
+		y = 7,
+		x = 5,
+		z = 5
+	}
+,
+	data = {
+n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n2, n1, n1, n1, n1, 
+n3, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, 
+n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n2, n2, n2, n1, n1, 
+n3, n3, n3, n1, n1, n1, n3, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, 
+n1, n1, n1, n1, n4, n1, n1, n1, n1, n4, n1, n1, n2, n2, n4, n2, n2, 
+n3, n3, n4, n3, n3, n1, n3, n3, n3, n1, n1, n1, n3, n1, n1, n1, n1, 
+n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n2, n2, n2, 
+n1, n1, n3, n3, n3, n1, n1, n1, n3, n1, n1, n1, n1, n1, n1, n1, n1, 
+n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n2, 
+n1, n1, n1, n1, n3, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, n1, 
+n1, n1, n1, n1, n1, 
+
+}
+}

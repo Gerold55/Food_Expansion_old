@@ -16,7 +16,7 @@ minetest.register_craft({
 
 minetest.register_craftitem("farming:fresh_water", {
 	description = ("Fresh Water"),
-	inventory_image = "farming_water_fresh.png",
+	inventory_image = "farming_fresh_water.png",
 	groups = {food_bread = 1, flammable = 2},
 })
 

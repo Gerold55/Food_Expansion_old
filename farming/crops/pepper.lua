@@ -22,7 +22,7 @@ minetest.register_node("farming:peppercorn", {
 -- green pepper
 minetest.register_craftitem("farming:pepper", {
 	description = S("Pepper"),
-	inventory_image = "crops_pepper.png",
+	inventory_image = "crops_pepper_green.png",
 	on_use = minetest.item_eat(2),
 	groups = {food_pepper = 1, flammable = 3},
 })
