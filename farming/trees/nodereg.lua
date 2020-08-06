@@ -265,10 +265,8 @@ for k,v in ipairs(fruit_names)do
 				minetest.place_schematic({x = pos.x - 2, y = pos.y, z = pos.z - 2},old_expansion.tree_rand(),"random",_,false)
 				local pods = minetest.find_nodes_in_area({x = pos.x - 2, y = pos.y, z = pos.z - 2},{x = pos.x + 2, y = pos.y + 7, z = pos.z + 2}, {"farming:pod"})
 				local trunk = minetest.find_nodes_in_area({x = pos.x - 2, y = pos.y, z = pos.z - 2},{x = pos.x + 2, y = pos.y + 7, z = pos.z + 2}, {"farming:log_paperbark"})
-				if(#trunk > 2 and math.random(100) > 49)then
-					for o = 1, #trunk, 1 do
-						minetest.set_node(trunk[o], {name = "farming:log_cinnamon"})
-					end
+				for o = 1, #trunk, 1 do
+					minetest.set_node(trunk[o], {name = "farming:log_" .. v})
 				end
 				if(type(pods) == "table" and #pods > 0)then
 					for n = 1, #pods, 1 do
