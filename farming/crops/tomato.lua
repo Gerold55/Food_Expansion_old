@@ -3,7 +3,7 @@ local S = farming.intllib
 
 -- tomato seeds
 minetest.register_node("farming:seed_tomato", {
-	description = S("tomato Seed"),
+	description = S("Tomato Seed"),
 	tiles = {"farming_tomato_seed.png"},
 	inventory_image = "farming_tomato_seed.png",
 	wield_image = "farming_tomato_seed.png",
@@ -21,8 +21,15 @@ minetest.register_node("farming:seed_tomato", {
 
 -- harvested tomato
 minetest.register_craftitem("farming:tomato", {
-	description = S("tomato"),
+	description = S("Tomato"),
 	inventory_image = "farming_tomato.png",
+	groups = {food_tomato = 1, flammable = 2},
+})
+
+-- harvested green tomato
+minetest.register_craftitem("farming:tomato_green", {
+	description = S("Green Tomato"),
+	inventory_image = "farming_green_tomato.png",
 	groups = {food_tomato = 1, flammable = 2},
 })
 
@@ -50,13 +57,19 @@ minetest.register_node("farming:tomato_1", table.copy(crop_def))
 
 -- stage 2
 crop_def.tiles = {"farming_tomato_2.png"}
+crop_def.drop = {
+	items = {
+		{items = {'farming:tomato_green'}, rarity = 1},
+		{items = {'farming:seed_tomato'}, rarity = 1},
+	}
+}
 minetest.register_node("farming:tomato_2", table.copy(crop_def))
 
 -- stage 6
 crop_def.tiles = {"farming_tomato_3.png"}
 crop_def.drop = {
 	items = {
-		{items = {'farming:tomato'}, rarity = 2},
+		{items = {'farming:tomato_green'}, rarity = 3},
 		{items = {'farming:seed_tomato'}, rarity = 1},
 	}
 }

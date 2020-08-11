@@ -36,9 +36,9 @@ local inactive_formspec =
 	default.gui_bg..
 	default.gui_bg_img..
 	default.gui_slots..
-	"list[current_name;src;2.5,1.5;1,1;]"..
+	"list[current_name;src;2,1.75;1,1;]"..
 	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
-	"list[current_name;dst;4.75,0.96;2,2;]"..
+	"list[current_name;dst;3,2.50;2,1;]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
 	"listring[current_name;dst]"..
@@ -142,11 +142,27 @@ local function presser_node_timer(pos, elapsed)
 	      end
 	end
 	
+	if inv:contains_item("src", "farming:pineapple")then
+		if inv:room_for_item("dst", "farming:bait_fruit") then
+			inv:remove_item("src", "farming:pineapple")
+			inv:add_item("dst", "farming:bait_fruit")
+			inv:add_item("dst", "farming:juice_pineapple") 
+	      end
+	end
+	
 	if inv:contains_item("src", "default:apple")then
 		if inv:room_for_item("dst", "farming:bait_fruit") then
 			inv:remove_item("src", "default:apple")
 			inv:add_item("dst", "farming:bait_fruit")
 			inv:add_item("dst", "farming:juice_apple") 
+	      end
+	end
+	
+	if inv:contains_item("src", "farming:melon_slice")then
+		if inv:room_for_item("dst", "farming:bait_fruit") then
+			inv:remove_item("src", "farming:melon_slice")
+			inv:add_item("dst", "farming:bait_fruit")
+			inv:add_item("dst", "farming:juice_melon") 
 	      end
 	end
 	

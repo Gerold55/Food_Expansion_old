@@ -84,6 +84,26 @@ farming.registered_plants["farming:blueberries"] = {
 	steps = 7
 }
 
+-- blueberry juice
+minetest.register_craftitem("farming:juice_blueberry", {
+	description = S("Blueberry Juice"),
+	inventory_image = "farming_juice_blueberry.png",
+	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
+	groups = {food_blackberry = 1, flammable = 2, vessel = 1},
+	on_use = minetest.item_eat(2),
+})
+
+minetest.register_craft({
+	output = "farming:juice_blueberry",
+	type = "shapeless",
+	recipe = {
+		"vessels:drinking_glass", "group:food_blueberry", "farming:juicer"
+	},
+	replacements = {
+		{"group:food_juicer", "farming:juicer"},
+	},
+})
+
 -- Fuel
 
 minetest.register_craft({

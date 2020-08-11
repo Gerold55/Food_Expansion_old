@@ -630,6 +630,7 @@ farming.melon = true
 farming.pumpkin = true
 farming.raspberry = true
 farming.blueberry = true
+farming.peanut = true
 farming.garlic = true
 farming.onion = true
 farming.pepper = true
@@ -641,6 +642,11 @@ farming.flax = true
 farming.sunflower = true
 farming.pepper = true
 farming.wheat = true
+farming.marshmallow = true
+farming.leek = true
+farming.soybeans = true
+farming.oats = true
+farming.coffee = true
 farming.rarety = 0.002 -- 0.006
 
 
@@ -669,13 +675,16 @@ dofile(farming.path.."/fruit.lua")
 
 
 dofile(farming.path.."/utensils/presser.lua")
---dofile(farming.path.."/utensils/mixing_bowl.lua")
-
+dofile(farming.path.."/utensils/mixing_bowl.lua")
+dofile(farming.path.."/utensils/bakeware.lua")
 
 dofile(farming.path.."/trees/support.lua")
 dofile(farming.path.."/trees/nodereg.lua")
+dofile(farming.path.."/trees/abm.lua")
+dofile(farming.path.."/trees/bamboo.lua")
 dofile(farming.path.."/trees/itemreg.lua")
 dofile(farming.path.."/trees/framework.lua")
+dofile(farming.path.."/trees/trees.lua")
 -- helper function
 local function ddoo(file, check)
 
@@ -695,6 +704,7 @@ ddoo("melon.lua", farming.melon)
 ddoo("pumpkin.lua", farming.pumpkin)
 ddoo("raspberry.lua", farming.raspberry)
 ddoo("blueberry.lua", farming.blueberry)
+ddoo("peanut.lua", farming.peanut)
 ddoo("garlic.lua", farming.garlic)
 ddoo("onion.lua", farming.onion)
 ddoo("beetroot.lua", farming.beetroot)
@@ -704,9 +714,16 @@ ddoo("flax.lua", farming.flax)
 ddoo("sunflower.lua", farming.sunflower)
 ddoo("pepper.lua", farming.pepper)
 ddoo("wheat.lua", farming.wheat)
+ddoo("marshmallow.lua", farming.marshmallow)
+ddoo("leek.lua", farming.leek)
+ddoo("soybeans.lua", farming.soybeans)
+ddoo("oats.lua", farming.oats)
+ddoo("coffee.lua", farming.coffee)
 
 dofile(farming.path.."/food.lua")
 dofile(farming.path.."/crops/items.lua")
 dofile(farming.path.."/mapgen.lua")
 dofile(farming.path.."/compatibility.lua") -- Farming Plus compatibility
 dofile(farming.path.."/lucky_block.lua")
+dofile(farming.path.."/recipes.lua")
+dofile(farming.path.."/craftitems.lua")

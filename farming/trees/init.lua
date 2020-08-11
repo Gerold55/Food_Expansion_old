@@ -11,14 +11,3 @@ old_expansion = {
 }
 old_expansion.growthSources.names = {"default:dirt", "default:dirt_with_grass", "default:water_source", "default:water_flowing", "default:ice", "default:dirt_with_snow",}
 old_expansion.growthSources.values = {6, 4, 4, 3, -6, 2}
-
-
-
-
-
--- FILES TO RUN
-dofile(modpath.."/support.lua")
-dofile(modpath.."/nodereg.lua")
-dofile(modpath.."/itemreg.lua")
-dofile(modpath.."/framework.lua")
---dofile(modpath.."/depends.txt")

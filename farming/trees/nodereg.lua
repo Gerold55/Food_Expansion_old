@@ -19,37 +19,10 @@ minetest.register_node("farming:leaves"..n, {
 		"leaves"..n..".png"
 	},
 	paramtype = "light",
-	groups = {cracky = 6, oddly_breakable_by_hand = 3, leafdecay = 3, leaves = 1},
+	groups = {cracky = 6, oddly_breakable_by_hand = 3, leaves = 1},
 })
 end
-minetest.register_node("farming:vine", {
-	description = "dev",
-	tiles = {"vines1.png"},
-	is_ground_content = true,
-	groups = {cracky=3, stone=1, duramen = 2},
-	drawtype = "nodebox",
-	paramtype = "light",
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5}
-		}
-	}
-})
-minetest.register_node("farming:vine2", {
-	description = "dev",
-	tiles = {"vines2.png"},
-	is_ground_content = true,
-	groups = {cracky=3, stone=1,oddly_breakable_by_hand = 1},
-	drawtype = "nodebox",
-	paramtype = "light",
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5}
-		}
-	}
-})
+
 minetest.register_node("farming:bush1", {
 	tiles = {
 		"leaf1.png",
@@ -87,7 +60,7 @@ minetest.register_node("farming:vanilla1", {
 			{-0.0625, 0, -0.0625, 0, 0.375, 0},
 		}
 	},
-	groups = {oddly_breakable_by_hand = 1, leafdecay = 3}
+	groups = {oddly_breakable_by_hand = 1}
 })
 
 
@@ -135,12 +108,13 @@ minetest.register_node("farming:pod", {
 			{-0.0625, -0.4375, -0.1875, 0, -0.5, 0.0625}
 		}
 	},
-	groups = {cracky = 6,oddly_breakable_by_hand = 6, leafdecay = 3, attached_node = 1},
+	groups = {cracky = 6, oddly_breakable_by_hand = 6, not_in_creative_inventory = 1},
 	on_punch = function(pos)
 	local meta = minetest.get_meta(pos)
 	minetest.chat_send_all(meta:get_string("type"))
 	end
 })
+
 minetest.register_node("farming:pod2", {
 	tiles = {"wls_podtex.png",},
 	drawtype = "nodebox",
@@ -155,8 +129,9 @@ minetest.register_node("farming:pod2", {
 			{-0.0625, -0.4375, -0.1875, 0, -0.5, 0.0625}
 		}
 	},
-	groups = {oddly_breakable_by_hand = 10, leafdecay = 3, attached_node = 1}
+	groups = {oddly_breakable_by_hand = 10, not_in_creative_inventory = 1}
 })
+
 minetest.register_node("farming:pod3", {
 	tiles = {"wls_podtex.png",},
 	drawtype = "nodebox",
@@ -172,52 +147,96 @@ minetest.register_node("farming:pod3", {
 			{-0.125, 0.1875, -0.1875, 0.125, -0.1875, 0.0625}
 		}
 	},
-	groups = {oddly_breakable_by_hand = 10, leafdecay = 3, attached_node = 1}
+	groups = {oddly_breakable_by_hand = 10, not_in_creative_inventory = 1}
 })
 
-for n = 1, #old_expansion.types.logs, 1 do
-minetest.register_node("farming:log_"..old_expansion.types.logs[n], {
-	description = "Bananas",
-	tiles = {"log_"..old_expansion.types.logs[n]..".png"},
-	waving = 1,
+minetest.register_node("farming:tree_tea", {
+	description = "Tea Log",
+	tiles = {"farming_bark_tea.png",
+		{name = "farming_bark_tea.png"}},
+	groups = {crumbly = 3},
+	drawtype = "nodebox",
 	paramtype = "light",
-	paramtype2 = "facedir",
-	is_ground_content = true,
-	groups = {cracky=3, stone=1,oddly_breakable_by_hand = 1, fe_plant_live = 1, tree = 1},
-	on_punch = function(pos, pointed_thing)
-		local meta = minetest.get_meta(pos)
-		minetest.chat_send_all(meta:get_string("vstate"))
-	end
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.0625, -0.5, -0.125, 0.125, 0.5, 0.0625}, -- NodeBox1
+		}
+	},
+	drop = "default:stick",
 })
-end
+
+minetest.register_node("farming:leaves_tea", {
+	description = "Tea Leaves",
+	tiles = {"leaves_tea.png",
+		{name = "leaves_tea.png",
+			tileable_vertical = false}},
+	drawtype = "allfaces_optional",
+	groups = {crumbly = 3},
+	drop = "farming:tealeaf",
+})
+
+minetest.register_craftitem("farming:tealeaf", {
+	description = "Tealeaf",
+	inventory_image = "farming_tealeaf.png",
+	groups = {flammable = 2},
+})
+
+minetest.register_node("farming:log_cinnamon", {
+	description = "Cinnamon Log",
+	tiles = {"log_cinnamon.png"},
+	paramtype2 = "facedir",
+	groups = {choppy = 2, tree = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node
+})
+
+minetest.register_node("farming:log_cinnamon_empty", {
+	description = "Cinnamon Log",
+	tiles = {"log_cinnamon.png"},
+	paramtype2 = "facedir",
+	groups = {choppy = 2, tree = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	drop = "default:tree",
+	on_place = minetest.rotate_node
+})
+
+minetest.register_node("farming:log_paperbark", {
+	description = "Paperbark Log",
+	tiles = {"log_paperbark.png"},
+	paramtype2 = "facedir",
+	groups = {choppy = 2, tree = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node
+})
 
 --  --  --  --  --  --  --  Fruits
-local fruit_names = {"cherry","pomegranate","peach","apricot","cinnamon","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","olive","nutmeg","maple","mango","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppeprcorn","pawpaw","paperbark","spiderweb","orange"}
+local fruit_names = {"cherries","olives","pomegranate","cinnamon","peach","apricot","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","grapes","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","nutmeg","maple","mango","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppercorn","pawpaw","spiderweb","orange"}
 for k,v in ipairs(fruit_names)do 
 	minetest.register_node("farming:fruit_"..v,{
 		description = v,
 		tiles = {"fruit_"..v..".png"},
+		wield_image = {"fruit_"..v..".png"},
+		inventory_image = {"fruit_"..v..".png"},
 		drawtype = "plantlike",
 		waving = 1,
 		walkable = false,
 		paramtype = "light",
-		paramtype2 = "wallmounted",
-		is_ground_content = true,
-		groups = {choppy=3,oddly_breakable_by_hand = 1, old_expansion_fruit = 2, leafdecay = 3, leafdecay_drop = 1, attached_node = 1},
+		groups = {choppy=3, not_in_creative_inventory = 1, oddly_breakable_by_hand = 1, old_expansion_fruit = 2},
 		on_rightclick = function(pos, node, puncher, pointed_thing)
 			local meta = minetest.get_meta(pos)
 			local type = meta:get_string("type")
-				minetest.set_node(pos, {name = "farming:pod"})
+				minetest.swap_node(pos, {name = "farming:pod"})
 				meta:set_string("type",type)
 				pos.y = pos.y - 0.2;
-				minetest.add_item(pos,{name="farming:fruit_"..type, count = 3})
-		
+				minetest.add_item(pos,{name="farming:"..type, count = 3})
 		end
 	})
 
 	minetest.register_node("farming:sapling_"..v,{
 		description = v.." Sapling",
 		tiles = {"sapling_"..v..".png"},
+		inventory_image = {"sapling_"..v..".png"},
 		drawtype = "plantlike",
 		waving = 1,
 		walkable = false,
@@ -308,70 +327,8 @@ for k,v in ipairs(fruit_names)do
 
 		table.insert(leavesList, pod)
 	end
-
-	old_expansion.register_leafdecay({
-		trunks = trunkList,
-		leaves = leavesList,
-		radius = 3,
-	})
 end
-minetest.register_node("farming:cherry_0", {
-	tiles = {
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png"
-	},
-	drawtype = "nodebox",
-	waving = 2,
-	paramtype = "light",
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{0, -0.0625, -0.0625, 0.0625, 0.4375, 0},
-			{-0.0625, 0.4375, -0.1875, 0, 0.5, 0.0625},
-			{0, 0.3125, -0.125, 0.0625, 0.375, 0},
-			{0, 0.25, 0, 0.0625, 0.3125, 0.0625},
-			{0, 0.125, -0.125, 0.0625, 0.1875, -0.0625},
-			{0, 0.0625, 0, 0.0625, 0.125, 0.0625},
-			{0.0625, 0, -0.0625, 0.125, 0.0625, 0},
-			{0.0625, 0.1875, -0.0625, 0.125, 0.25, 0},
-		}
-	},
-	groups = {oddly_breakable_by_hand = 3}
-})
-minetest.register_node("farming:cherry_1", {
-	tiles = {
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png",
-		"cherry_1_tex.png"
-	},
-	groups = {falling_node = 20,oddly_breakable_by_hand = 1},
-	waving = 2,
-	drawtype = "nodebox",
-	paramtype = "light",
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{0, -0.375, -0.0625, 0.0625, 0.4375, 0},
-			{-0.0625, 0.4375, -0.1875, 0, 0.5, 0.0625},
-			{-0.0625, 0.25, -0.125, 0.0625, 0.375, -0.0625},
-			{-0.0625, 0.1875, 0, 0.0625, 0.3125, 0.0625},
-			{-0.0625, 0.0625, -0.125, 0.0625, 0.1875, -0.0625},
-			{0, 0.0625, 0, 0.0625, 0.125, 0.0625},
-			{0.0625, -0.0625, -0.125, 0.125, 0.0625, 0},
-			{0.0625, 0.125, -0.0625, 0.125, 0.25, 0.0625},
-			{0.0625, -0.3125, -0.125, 0.125, -0.1875, 0},
-		}
-	},
-	on_construct = function(pos)
-	end
-})
+
 minetest.register_node("farming:gardenwindy", {
 	description = "Windy Garden",
 	drawtype = "plantlike",
@@ -381,9 +338,14 @@ minetest.register_node("farming:gardenwindy", {
 	paramtype2 = "facedir",
 	is_ground_content = true,
 	groups = {cracky=3, stone=1,oddly_breakable_by_hand = 1},
-	on_punch = function(pos, pointed_thing)
-		minetest.chat_send_all(#fruit_names)
-	end
+	drop = {{{'farming:seed_tomato'}, rarity = 1},
+			{{'farming:seed_cabbage'}, rarity = 1},
+			{{'farming:seed_agave'}, rarity = 1},
+			{{'farming:beet'}, rarity = 1},
+			{{'farming:carrot'}, rarity = 1},
+			{{'farming:seed_corn'}, rarity = 1},
+			{{'farming:seed_cotton'}, rarity = 1},
+	}
 })
 
 minetest.register_node("farming:meshy", {

@@ -27,22 +27,41 @@ minetest.register_craftitem("farming:wheat", {
 })
 
 -- straw
-minetest.register_node("farming:straw", {
-	description = S("Straw"),
-	tiles = {"farming_straw.png"},
-	is_ground_content = false,
-	groups = {snappy = 3, flammable = 4, fall_damage_add_percent = -30},
-	sounds = default.node_sound_leaves_defaults(),
-})
+--minetest.register_node("farming:straw", {
+--	description = S("Straw"),
+--	tiles = {"farming_straw.png"},
+--	is_ground_content = false,
+--	groups = {snappy = 3, flammable = 4, fall_damage_add_percent = -30},
+--	sounds = default.node_sound_leaves_defaults(),
+--})
 
-minetest.register_craft({
-	output = "farming:straw 3",
-	recipe = {
-		{"farming:wheat", "farming:wheat", "farming:wheat"},
-		{"farming:wheat", "farming:wheat", "farming:wheat"},
-		{"farming:wheat", "farming:wheat", "farming:wheat"},
-	}
-})
+--minetest.register_node("farming:straw", {
+--	description = "Straw",
+--	tiles = {"farming_straw.png"},
+--	is_ground_content = false,
+--	groups = {snappy=3, flammable=4, fall_damage_add_percent=-30},
+--	sounds = default.node_sound_leaves_defaults(),
+--})
+
+stairs.register_stair_and_slab(
+	"straw",
+	"farming:straw",
+	{snappy = 3, flammable = 4},
+	{"farming_straw.png"},
+	"Straw Stair",
+	"Straw Slab",
+	default.node_sound_leaves_defaults(),
+	true
+)
+
+---minetest.register_craft({
+---	output = "farming:straw 3",
+--	recipe = {
+--		{"farming:wheat", "farming:wheat", "farming:wheat"},
+--		{"farming:wheat", "farming:wheat", "farming:wheat"},
+--		{"farming:wheat", "farming:wheat", "farming:wheat"},
+--	}
+--})
 
 minetest.register_craft({
 	output = "farming:wheat 3",
@@ -92,17 +111,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "farming:dough",
 	recipe = {
-		"farming:mixingbowl", "bucket:bucket_water", "",
-		"farming:flour", "farming:salt", ""
-	},
-	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	output = "farming:dough",
-	recipe = {
-		"farming:mixingbowl", "bucket:bucket_river_water", "",
+		"farming:mixingbowl", "group:water_bucket", "",
 		"farming:flour", "farming:salt", ""
 	},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
@@ -170,6 +179,7 @@ local crop_def = {
 	paramtype2 = "meshoptions",
 	place_param2 = 3,
 	sunlight_propagates = true,
+	waving = 1,
 	walkable = false,
 	buildable_to = true,
 	drop = "",

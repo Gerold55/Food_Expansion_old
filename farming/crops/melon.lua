@@ -3,7 +3,7 @@ local S = farming.intllib
 
 -- melon
 minetest.register_craftitem("farming:melon_seeds", {
-	description = S("Melon Seeds"),
+	description = S("Watermelon Seeds"),
 	inventory_image = "farming_melon_seeds.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:melon_1")
@@ -11,7 +11,7 @@ minetest.register_craftitem("farming:melon_seeds", {
 })
 
 minetest.register_craftitem("farming:melon_slice", {
-	description = S("Melon Slice"),
+	description = S("Watermelon Slice"),
 	inventory_image = "farming_melon_slice.png",
 	groups = {food_melon_slice = 1, flammable = 3},
 	on_use = minetest.item_eat(5),
@@ -85,3 +85,23 @@ farming.registered_plants["farming:melon"] = {
 	maxlight = 15,
 	steps = 8
 }
+
+-- melon juice
+minetest.register_craftitem("farming:juice_melon", {
+	description = S("Watermelon Juice"),
+	inventory_image = "farming_juice_melon.png",
+	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
+	groups = {food_blackberry = 1, flammable = 2, vessel = 1},
+	on_use = minetest.item_eat(2),
+})
+
+minetest.register_craft({
+	output = "farming:juice_melon",
+	type = "shapeless",
+	recipe = {
+		"vessels:drinking_glass", "group:food_melon_slice", "farming:juicer"
+	},
+	replacements = {
+		{"group:food_juicer", "farming:juicer"},
+	},
+})

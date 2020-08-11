@@ -194,25 +194,6 @@ minetest.register_node("farming:desert_sand_soil_wet", {
 	end
 })
 
-minetest.register_node("farming:straw", {
-	description = "Straw",
-	tiles = {"farming_straw.png"},
-	is_ground_content = false,
-	groups = {snappy=3, flammable=4, fall_damage_add_percent=-30},
-	sounds = default.node_sound_leaves_defaults(),
-})
-
-stairs.register_stair_and_slab(
-	"straw",
-	"farming:straw",
-	{snappy = 3, flammable = 4},
-	{"farming_straw.png"},
-	"Straw Stair",
-	"Straw Slab",
-	default.node_sound_leaves_defaults(),
-	true
-)
-
 for i = 1, 5 do
 	minetest.override_item("default:grass_"..i, {drop = {
 		max_items = 1,

@@ -6,7 +6,8 @@ minetest.register_craftitem("farming:mixingbowl", {
 minetest.register_craft({
 	output = 'farming:mixingbowl',
 	recipe = {
-		{"group:wood", "default:stick",  "group:wood",
-		"", "group:wood", ""},
+		{"group:wood", "default:stick",  "group:wood",},
+		{"", "group:wood", "",},
+		{"", "", "",},
 	}
 })

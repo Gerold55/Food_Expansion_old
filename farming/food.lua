@@ -29,11 +29,16 @@ local S = farming.intllib
 
 --= Jaffa Cake
 
+--= Bacon
+minetest.register_craftitem("farming:bacon", {
+	description = S("Bacon"),
+	inventory_image = "farming_bacon.png",
+	groups = {food_pork = 1},
+})
 --= Foobar
 minetest.register_craftitem("farming:foobar", {
 	description = S("Foobar"),
 	inventory_image = "farming_foobar.png",
-	groups = {food_agave = 1, flammable = 2},
 })
 
 minetest.register_craft({
