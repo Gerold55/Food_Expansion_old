@@ -114,7 +114,7 @@ minetest.register_craft({
 		"farming:mixingbowl", "group:water_bucket", "",
 		"farming:flour", "farming:salt", ""
 	},
-	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
+	replacements = {{"farming:mixingbowl", "farming:mixingbowl"}},
 })
 
 -- sliced bread
@@ -152,6 +152,33 @@ minetest.register_craft({
 	cooktime = 3,
 	output = "farming:toast",
 	recipe = "farming:bread_slice"
+})
+
+--bun
+minetest.register_craftitem("farming:bun", {
+	description = S("Bun"),
+	inventory_image = "farming_bun.png",
+	on_use = minetest.item_eat(1),
+	groups = {food_toast = 1, flammable = 2},
+})
+
+minetest.register_craftitem("farming:dough_bun", {
+	description = S("Bun Dough"),
+	inventory_image = "farming_dough_bun.png",
+	groups = {food_dough = 1, flammable = 2},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:dough_bun",
+	recipe = {"farming:dough"},
+})
+
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 3,
+	output = "farming:bun",
+	recipe = "farming:dough_bun"
 })
 
 -- toast sandwich

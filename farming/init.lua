@@ -677,6 +677,9 @@ dofile(farming.path.."/fruit.lua")
 dofile(farming.path.."/utensils/presser.lua")
 dofile(farming.path.."/utensils/mixing_bowl.lua")
 dofile(farming.path.."/utensils/bakeware.lua")
+dofile(farming.path.."/utensils/pot.lua")
+dofile(farming.path.."/utensils/juicer.lua")
+dofile(farming.path.."/utensils/cutting_board.lua")
 
 dofile(farming.path.."/trees/support.lua")
 dofile(farming.path.."/trees/nodereg.lua")
@@ -685,6 +688,9 @@ dofile(farming.path.."/trees/bamboo.lua")
 dofile(farming.path.."/trees/itemreg.lua")
 dofile(farming.path.."/trees/framework.lua")
 dofile(farming.path.."/trees/trees.lua")
+
+
+dofile(farming.path.."/food/pizza.lua")
 -- helper function
 local function ddoo(file, check)
 

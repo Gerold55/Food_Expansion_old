@@ -211,25 +211,29 @@ minetest.register_node("farming:log_paperbark", {
 })
 
 --  --  --  --  --  --  --  Fruits
-local fruit_names = {"cherries","olives","pomegranate","cinnamon","peach","apricot","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","grapes","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","nutmeg","maple","mango","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppercorn","pawpaw","spiderweb","orange"}
+local fruit_names = {"cherry","pomegranate","peach","apricot","cinnamon","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","olive","nutmeg","maple","mango","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppeprcorn","pawpaw","paperbark","spiderweb","orange"}
 for k,v in ipairs(fruit_names)do 
 	minetest.register_node("farming:fruit_"..v,{
 		description = v,
 		tiles = {"fruit_"..v..".png"},
-		wield_image = {"fruit_"..v..".png"},
-		inventory_image = {"fruit_"..v..".png"},
 		drawtype = "plantlike",
 		waving = 1,
 		walkable = false,
 		paramtype = "light",
-		groups = {choppy=3, not_in_creative_inventory = 1, oddly_breakable_by_hand = 1, old_expansion_fruit = 2},
+		paramtype2 = "wallmounted",
+		is_ground_content = true,
+		groups = {choppy=3,oddly_breakable_by_hand = 1, old_expansion_fruit = 2, leafdecay = 3, leafdecay_drop = 1, attached_node = 1},
+		on_construct = function(pos)
+			minetest.get_meta(pos):set_string("type", v)
+		end,
 		on_rightclick = function(pos, node, puncher, pointed_thing)
 			local meta = minetest.get_meta(pos)
 			local type = meta:get_string("type")
-				minetest.swap_node(pos, {name = "farming:pod"})
+				minetest.set_node(pos, {name = "farming:pod"})
 				meta:set_string("type",type)
 				pos.y = pos.y - 0.2;
 				minetest.add_item(pos,{name="farming:"..type, count = 3})
+		
 		end
 	})
 

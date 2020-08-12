@@ -17,9 +17,9 @@ local function active_formspec(fuel_percent, item_percent)
 		default.gui_bg..
 		default.gui_bg_img..
 		default.gui_slots..
-		"list[current_name;src;2.5,1;1,1;]"..
-		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
-		(item_percent)..":gui_furnace_arrow_fg.png^[transformR270]"..
+		"list[current_name;src;3.44,0.6;1,1;]"..
+		"image[3.45,.07;1,.2;mp_mw_bar.png^[lowpart:"..
+		(item_percent)..":mp_mw_bar_on.png^[transformR270]"..
 		"list[current_name;dst;4.75,0.96;3,2;]"..
 		"list[current_player;main;0,4.25;8,1;]"..
 		"list[current_player;main;0,5.5;8,3;8]"..
@@ -36,8 +36,8 @@ local inactive_formspec =
 	default.gui_bg..
 	default.gui_bg_img..
 	default.gui_slots..
-	"list[current_name;src;2,1.75;1,1;]"..
-	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
+	"list[current_name;src;3.44,0.6;1,1;]"..
+	"image[3.45,.07;1,.2;mp_mw_bar.png^[transformR270]"..
 	"list[current_name;dst;3,2.50;2,1;]"..
 	"list[current_player;main;0,4.25;8,1;]"..
 	"list[current_player;main;0,5.5;8,3;8]"..
@@ -198,22 +198,18 @@ local function presser_node_timer(pos, elapsed)
 	      end
 	end
 	
-	if inv:contains_item("src", "farming:soybean")then
+	if inv:contains_item("src", "farming:soybeans")then
 		if inv:room_for_item("dst", "farming:bait_fruit") then
-			inv:remove_item("src", "farming:soybean")
+			inv:remove_item("src", "farming:soybeans")
 			inv:add_item("dst", "farming:bait_fruit")
-			inv:add_item("dst", "farming:milk_soy") 
-	      end
-	end
-	
-	if inv:contains_item("src", "farming:milk_soy")then
-			inv:remove_item("src", "farming:milk_soy")
 			inv:add_item("dst", "farming:tofu_silken") 
+	      end
 	end
 	
 	if inv:contains_item("src", "farming:tofu_silken")then
 			inv:remove_item("src", "farming:tofu_silken")
 			inv:add_item("dst", "farming:tofu_firm") 
+			inv:add_item("dst", "farming:soy_milk") 
 	end
 	
 	if inv:contains_item("src", "farming:seed_cotton")then
@@ -239,12 +235,12 @@ end
 minetest.register_node("farming:presser", {
 	description = "Presser",
 	tiles = {
-		"pressertop.png",
-		"apiarytop.png",
-		"presserside.png",
-		"presserside.png",
-		"presserside.png",
-		"presserfront.png"
+		"farming_presser_top.png",
+		"farming_presser_bottom.png",
+		"farming_presser_side.png",
+		"farming_presser_side.png",
+		"farming_presser_side.png",
+		"farming_presser_front.png"
 	},
 	paramtype2 = "facedir",
 	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
