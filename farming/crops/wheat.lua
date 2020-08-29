@@ -81,7 +81,7 @@ minetest.register_craft({
 	type = "shapeless",
 	output = "farming:flour",
 	recipe = {
-		"farming:wheat", "farming:mortar_pestle"
+		"farming:mortar_pestle", "farming:wheat"
 	},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
 })
@@ -104,7 +104,7 @@ minetest.register_craft({
 	type = "cooking",
 	cooktime = 15,
 	output = "farming:bread",
-	recipe = "farming:flour"
+	recipe = "farming:dough"
 })
 
 minetest.register_craft({
@@ -113,6 +113,22 @@ minetest.register_craft({
 	recipe = {
 		"farming:mixingbowl", "group:water_bucket", "",
 		"farming:flour", "farming:salt", ""
+	},
+	replacements = {{"farming:mixingbowl", "farming:mixingbowl"}},
+})
+
+-- batter 
+minetest.register_craftitem("farming:batter", {
+	description = S("Batter"),
+	inventory_image = "farming_batter.png",
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:batter",
+	recipe = {
+		"farming:mixingbowl", "farming:flour", "",
+		"group:food_egg", "", ""
 	},
 	replacements = {{"farming:mixingbowl", "farming:mixingbowl"}},
 })
@@ -128,8 +144,8 @@ minetest.register_craftitem("farming:bread_slice", {
 minetest.register_craft({
 	type = "shapeless",
 	output = "farming:bread_slice 5",
-	recipe = {"farming:bread", "group:food_cutting_board"},
-	replacements = {{"group:food_cutting_board", "farming:cutting_board"}},
+	recipe = {"farming:bread", "farming:cutting_board"},
+	replacements = {{"farming:cutting_board", "farming:cutting_board"}},
 })
 
 -- toast

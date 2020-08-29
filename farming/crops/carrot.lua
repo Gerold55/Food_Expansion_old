@@ -10,7 +10,7 @@ local S = farming.intllib
 minetest.register_craftitem("farming:carrot", {
 	description = S("Carrot"),
 	inventory_image = "farming_carrot.png",
-	groups = {food_carrot = 1, flammable = 2},
+	groups = {food_veggie = 1, food_type_snack = 1},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:carrot_1")
 	end,
@@ -22,15 +22,16 @@ minetest.register_craftitem("farming:juice_carrot", {
 	description = S("Carrot Juice"),
 	inventory_image = "farming_juice_carrot.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {food_blackberry = 1, flammable = 2, vessel = 1},
-	on_use = minetest.item_eat(2),
+	groups = {food_drink = 1, flammable = 2, vessel = 1},
 })
 
 minetest.register_craft({
 	output = "farming:juice_carrot",
 	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "group:food_carrot", "farming:juicer"
+		"farming:juicer", "farming:carrot", "",
+		"farming:carrot", "", "",
+		"", "", ""
 	},
 	replacements = {
 		{"group:food_juicer", "farming:juicer"},

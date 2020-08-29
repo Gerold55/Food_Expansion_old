@@ -6,7 +6,7 @@ minetest.register_craftitem("farming:beet", {
 	description = S("Beet"),
 	inventory_image = "farming_beet.png",
 	drawtype = "signlike",
-	groups = {seed = 1, snappy = 3, attached_node = 1, food_beet = 1},
+	groups = {seed = 1, snappy = 3, attached_node = 1, food_beet = 1, food_type_snack = 1},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	on_use = minetest.item_eat(1),

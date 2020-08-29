@@ -89,7 +89,7 @@ minetest.register_craftitem("farming:drink_coffee", {
 	description = S("Coffee"),
 	inventory_image = "farming_coffee_cup.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {food_drink = 1, flammable = 2, vessel = 1},
+	groups = {food_coffee = 1, flammable = 2, vessel = 1, food_type_drink = 1},
 	on_use = minetest.item_eat(2),
 })
 
@@ -97,7 +97,9 @@ minetest.register_craft({
 	output = "farming:drink_coffee",
 	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "farming:coffee_beans", "farming:pot", "group:water"
+		"farming:coffee_beans", "farming:pot", "",
+		"", "", "",
+		"", "", ""
 	},
 	replacements = {
 		{"group:food_juicer", "farming:juicer"},

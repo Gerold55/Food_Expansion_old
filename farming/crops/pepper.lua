@@ -4,11 +4,11 @@ local S = farming.intllib
 -- pepper seeds
 minetest.register_node("farming:peppercorn", {
 	description = S("Peppercorn"),
-	tiles = {"crops_peppercorn.png"},
-	inventory_image = "crops_peppercorn.png",
-	wield_image = "crops_peppercorn.png",
+	tiles = {"farming_peppercorn.png"},
+	inventory_image = "farming_peppercorn.png",
+	wield_image = "farming_peppercorn.png",
 	drawtype = "signlike",
-	groups = {seed = 1, snappy = 3, attached_node = 1},
+	groups = {seed = 1, snappy = 3, attached_node = 1, food_peppercorn = 1},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	walkable = false,
@@ -24,7 +24,7 @@ minetest.register_craftitem("farming:pepper", {
 	description = S("Pepper"),
 	inventory_image = "crops_pepper_green.png",
 	on_use = minetest.item_eat(2),
-	groups = {food_pepper = 1, flammable = 3},
+	groups = {food_veggie = 1, flammable = 3},
 })
 
 minetest.register_craft({
@@ -36,12 +36,12 @@ minetest.register_craft({
 -- ground pepper
 minetest.register_node("farming:pepper_ground", {
 	description = ("Ground Pepper"),
-	inventory_image = "crops_pepper_ground.png",
-	wield_image = "crops_pepper_ground.png",
+	inventory_image = "farming_pepper_ground.png",
+	wield_image = "farming_pepper_ground.png",
 	drawtype = "plantlike",
 	visual_scale = 0.8,
 	paramtype = "light",
-	tiles = {"crops_pepper_ground.png"},
+	tiles = {"farming_pepper_ground.png"},
 	groups = {
 		vessel = 1, food_pepper_ground = 1,
 		dig_immediate = 3, attached_node = 1
@@ -56,10 +56,9 @@ minetest.register_node("farming:pepper_ground", {
 minetest.register_craft( {
 	output = "farming:pepper_ground",
 	type = "shapeless",
-	recipe = {"group:food_peppercorn", "vessels:glass_bottle", "farming:mortar_pestle"},
+	recipe = {"farming:mortar_pestle", "vessels:glass_bottle", "group:food_peppercorn"},
 	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
 })
-
 
 -- pepper definition
 local crop_def = {
@@ -142,11 +141,3 @@ farming.registered_plants["farming:pepper"] = {
 	maxlight = 15,
 	steps = 7
 }
-
--- Fuel
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "farming:pepper",
-	burntime = 1,
-})

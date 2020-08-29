@@ -28,3 +28,76 @@ Created by anon (License: CC-By-SA 4.0):
 
 Created by StarNinjas (CC0):
   farming_sweetpotato.png
+
+MIT License (Farming_redo
+
+--items
+sugar
+
+MIT License (simplefarming)
+
+-- fruit
+
+apricot
+banana
+cherries
+grapes
+mango
+olives
+orange
+pear
+plum
+
+-- items
+
+marshmallow
+marshmallow root
+soybeans
+oats
+cheese block & slice
+lettuce
+ginger seeds
+noodles
+lasagna
+pasta
+spaghetti
+tomato seeds
+cantelope seeds
+cucumber seeds
+cotton seeds
+
+
+--blocks
+
+birthday cake
+soybeans
+oats
+lettuce
+ginger
+sweet potato
+
+-- crops
+
+peanut 
+marshmallow
+
+MIT License Japanese Foods
+
+--blocks
+
+leek
+rice
+soybeans
+
+MIT License MysticalAgriculture
+
+--blocks
+basic_reprocessor
+
+
+bbq_peppercorn, bbq_pepper_ground, bbq_beef_raw, bbq_beef_cooked textures by
+(C) Grizzly Adam
+CC-BY-SA-3.0
+
+used the beef to make tofeak
+(renamed bbq to farming)

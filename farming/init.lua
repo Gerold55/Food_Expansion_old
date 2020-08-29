@@ -647,6 +647,12 @@ farming.leek = true
 farming.soybeans = true
 farming.oats = true
 farming.coffee = true
+farming.lettuce = true
+farming.ginger = true
+farming.mustard = true
+farming.sweet_potato = true
+farming.zucchini = true
+farming.sweet_melon = true
 farming.rarety = 0.002 -- 0.006
 
 
@@ -671,8 +677,10 @@ dofile(farming.path.."/soil.lua")
 dofile(farming.path.."/hoes.lua")
 dofile(farming.path.."/grass.lua")
 dofile(farming.path.."/fruit.lua")
---dofile(farming.path.."/sweets.lua")
-
+dofile(farming.path.."/overrides.lua")
+dofile(farming.path.."/decoration.lua")
+dofile(farming.path.."/condiments.lua")
+dofile(farming.path.."/sweets.lua")
 
 dofile(farming.path.."/utensils/presser.lua")
 dofile(farming.path.."/utensils/mixing_bowl.lua")
@@ -680,17 +688,34 @@ dofile(farming.path.."/utensils/bakeware.lua")
 dofile(farming.path.."/utensils/pot.lua")
 dofile(farming.path.."/utensils/juicer.lua")
 dofile(farming.path.."/utensils/cutting_board.lua")
+dofile(farming.path.."/utensils/skillet.lua")
+dofile(farming.path.."/utensils/mortar_pestle.lua")
+dofile(farming.path.."/utensils/saucepan.lua")
+dofile(farming.path.."/utensils/grinder.lua")
 
-dofile(farming.path.."/trees/support.lua")
-dofile(farming.path.."/trees/nodereg.lua")
-dofile(farming.path.."/trees/abm.lua")
-dofile(farming.path.."/trees/bamboo.lua")
-dofile(farming.path.."/trees/itemreg.lua")
-dofile(farming.path.."/trees/framework.lua")
-dofile(farming.path.."/trees/trees.lua")
+--dofile(farming.path.."/trees/support.lua")
+--dofile(farming.path.."/trees/nodereg.lua")
+--dofile(farming.path.."/trees/abm.lua")
+--dofile(farming.path.."/trees/bamboo.lua")
+--dofile(farming.path.."/trees/itemreg.lua")
+--dofile(farming.path.."/trees/framework.lua")
+--dofile(farming.path.."/trees/trees.lua")
+--dofile(farming.path.."/trees/mapgen.lua")
 
 
 dofile(farming.path.."/food/pizza.lua")
+dofile(farming.path.."/food/taco.lua")
+dofile(farming.path.."/food/apple.lua")
+dofile(farming.path.."/food/blueberry.lua")
+dofile(farming.path.."/food/pumpkin.lua")
+dofile(farming.path.."/food/sweet_potato.lua")
+dofile(farming.path.."/food/pasta.lua")
+dofile(farming.path.."/food/chicken.lua")
+dofile(farming.path.."/food/beef.lua")
+dofile(farming.path.."/food/jelly.lua")
+dofile(farming.path.."/food/potato.lua")
+dofile(farming.path.."/food/salads.lua")
+
 -- helper function
 local function ddoo(file, check)
 
@@ -725,6 +750,12 @@ ddoo("leek.lua", farming.leek)
 ddoo("soybeans.lua", farming.soybeans)
 ddoo("oats.lua", farming.oats)
 ddoo("coffee.lua", farming.coffee)
+ddoo("lettuce.lua", farming.lettuce)
+ddoo("ginger.lua", farming.ginger)
+ddoo("mustard.lua", farming.mustard)
+ddoo("sweet_potato.lua", farming.sweet_potato)
+ddoo("zucchini.lua", farming.zucchini)
+ddoo("sweet_melon.lua", farming.sweet_melon)
 
 dofile(farming.path.."/food.lua")
 dofile(farming.path.."/crops/items.lua")

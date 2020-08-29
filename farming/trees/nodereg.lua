@@ -195,7 +195,7 @@ minetest.register_node("farming:log_cinnamon_empty", {
 	description = "Cinnamon Log",
 	tiles = {"log_cinnamon.png"},
 	paramtype2 = "facedir",
-	groups = {choppy = 2, tree = 1, flammable = 2},
+	groups = {choppy = 2, tree = 1, flammable = 2, not_in_creative_inventory = 1},
 	sounds = default.node_sound_wood_defaults(),
 	drop = "default:tree",
 	on_place = minetest.rotate_node
@@ -211,7 +211,7 @@ minetest.register_node("farming:log_paperbark", {
 })
 
 --  --  --  --  --  --  --  Fruits
-local fruit_names = {"cherry","pomegranate","peach","apricot","cinnamon","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","olive","nutmeg","maple","mango","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppeprcorn","pawpaw","paperbark","spiderweb","orange"}
+local fruit_names = {"cherry","pomegranate","peach","apricot","cinnamon","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","olives","nutmeg","maple","mango","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppeprcorn","pawpaw","paperbark","spiderweb","orange","grapes"}
 for k,v in ipairs(fruit_names)do 
 	minetest.register_node("farming:fruit_"..v,{
 		description = v,
@@ -222,7 +222,7 @@ for k,v in ipairs(fruit_names)do
 		paramtype = "light",
 		paramtype2 = "wallmounted",
 		is_ground_content = true,
-		groups = {choppy=3,oddly_breakable_by_hand = 1, old_expansion_fruit = 2, leafdecay = 3, leafdecay_drop = 1, attached_node = 1},
+		groups = {choppy=3, not_in_creative_inventory = 1, oddly_breakable_by_hand = 1, old_expansion_fruit = 2, leafdecay = 3, leafdecay_drop = 1, attached_node = 1},
 		on_construct = function(pos)
 			minetest.get_meta(pos):set_string("type", v)
 		end,
@@ -332,25 +332,6 @@ for k,v in ipairs(fruit_names)do
 		table.insert(leavesList, pod)
 	end
 end
-
-minetest.register_node("farming:gardenwindy", {
-	description = "Windy Garden",
-	drawtype = "plantlike",
-	tiles = {"garden_windy.png"},
-	waving = 1,
-	paramtype = "light",
-	paramtype2 = "facedir",
-	is_ground_content = true,
-	groups = {cracky=3, stone=1,oddly_breakable_by_hand = 1},
-	drop = {{{'farming:seed_tomato'}, rarity = 1},
-			{{'farming:seed_cabbage'}, rarity = 1},
-			{{'farming:seed_agave'}, rarity = 1},
-			{{'farming:beet'}, rarity = 1},
-			{{'farming:carrot'}, rarity = 1},
-			{{'farming:seed_corn'}, rarity = 1},
-			{{'farming:seed_cotton'}, rarity = 1},
-	}
-})
 
 minetest.register_node("farming:meshy", {
 	drawtype = "mesh",

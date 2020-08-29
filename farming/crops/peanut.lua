@@ -21,8 +21,18 @@ minetest.register_craftitem("farming:peanut_butter", {
 	description = S("Peanut Butter"),
 	inventory_image = "farming_peanut_butter.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {food_peanut_butter = 1, flammable = 2, vessel = 1},
+	groups = {food_nut_butter = 1, flammable = 2, vessel = 1},
 	on_use = minetest.item_eat(2),
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:peanut_butter 2",
+	recipe = {
+		"farming:mortar_pestle", "group:food_nut_butter", "",
+		"farming:cooking_oil", "", "",
+		"", "", ""
+	}
 })
 
 -- peanut definition

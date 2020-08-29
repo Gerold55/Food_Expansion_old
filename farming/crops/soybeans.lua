@@ -9,10 +9,20 @@ local S = farming.intllib
 minetest.register_craftitem("farming:soy_seeds", {
 	description = S("Soybean Seeds"),
 	inventory_image = "farming_soy_beans.png",
-	groups = {seeds = 1, flammable = 2},
+	groups = {seeds = 1, food_veggie = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:soy_1")
 	end,
+})
+
+-- flour
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:flour",
+	recipe = {
+		"farming:mortar_pestle", "farming:soybeans"
+	},
+	replacements = {{"group:food_mortar_pestle", "farming:mortar_pestle"}},
 })
 
 -- soybean

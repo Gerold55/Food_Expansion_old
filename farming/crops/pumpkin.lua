@@ -27,7 +27,7 @@ minetest.register_craftitem("farming:pumpkin_slice", {
 	description = S("Pumpkin Slice"),
 	inventory_image = "farming_pumpkin_slice.png",
 	on_use = minetest.item_eat(8),
-	groups = {food_bread = 1, flammable = 2},
+	groups = {food_pumpkin = 1, flammable = 2},
 })
 
 minetest.register_craft({
@@ -112,32 +112,6 @@ minetest.register_craft({
 		{"group:stick", "group:stick", "group:stick",},
 		{"", "group:stick", "",}
 	}
-})
-
--- pumpkin bread
-minetest.register_craftitem("farming:pumpkin_bread", {
-	description = S("Pumpkin Bread"),
-	inventory_image = "farming_pumpkin_bread.png",
-	on_use = minetest.item_eat(8),
-	groups = {food_bread = 1, flammable = 2},
-})
-
-minetest.register_craftitem("farming:pumpkin_dough", {
-	description = S("Pumpkin Dough"),
-	inventory_image = "farming_pumpkin_dough.png",
-})
-
-minetest.register_craft({
-	output = "farming:pumpkin_dough",
-	type = "shapeless",
-	recipe = {"group:food_flour", "group:food_pumpkin_slice", "group:food_pumpkin_slice"}
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "farming:pumpkin_bread",
-	recipe = "farming:pumpkin_dough",
-	cooktime = 10
 })
 
 -- pumpkin definition

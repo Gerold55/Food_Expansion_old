@@ -19,11 +19,25 @@ minetest.register_node("farming:seed_corn", {
 	end,
 })
 
+-- cornmeal
+minetest.register_craftitem("farming:cornmeal", {
+	description = S("Cornmeal"),
+	inventory_image = "farming_cornmeal.png",
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:cornmeal",
+	recipe = {
+		"farming:mortar_pestle", "farming:corn"
+	}
+})
+
 -- harvested corn
 minetest.register_craftitem("farming:corn", {
 	description = S("Corn"),
 	inventory_image = "farming_corn.png",
-	groups = {food_corn = 1, flammable = 2},
+	groups = {food_veggie = 1, flammable = 2},
 })
 
 -- corn on the cob (texture by TenPlus1)

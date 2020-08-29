@@ -20,18 +20,11 @@ minetest.register_craftitem("farming:melon_slice", {
 
 
 minetest.register_craft({
-	output = "farming:melon_8",
+	output = "farming:melon",
 	recipe = {
 		{"farming:melon_slice", "farming:melon_slice"},
 		{"farming:melon_slice", "farming:melon_slice"},
 	}
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	output = "farming:melon_slice 4",
-	recipe = {"farming:melon_8", "farming:cutting_board"},
-	replacements = {{"farming:cutting_board", "farming:cutting_board"}},
 })
 
 -- melon definition
@@ -73,10 +66,6 @@ crop_def.drop = {
 }
 minetest.register_node("farming:melon_4", table.copy(crop_def))
 
---crop_def.drop = "farming:melon_slice 9"
-crop_def.drop = "farming:melon_8"
-minetest.register_node("farming:melon_8", table.copy(crop_def))
-
 -- add to registered_plants
 farming.registered_plants["farming:melon"] = {
 	crop = "farming:melon",
@@ -91,7 +80,7 @@ minetest.register_craftitem("farming:juice_melon", {
 	description = S("Watermelon Juice"),
 	inventory_image = "farming_juice_melon.png",
 	on_use = minetest.item_eat(4, "vessels:drinking_glass"),
-	groups = {food_blackberry = 1, flammable = 2, vessel = 1},
+	groups = {food_drink = 1, flammable = 2, vessel = 1},
 	on_use = minetest.item_eat(2),
 })
 
@@ -99,7 +88,9 @@ minetest.register_craft({
 	output = "farming:juice_melon",
 	type = "shapeless",
 	recipe = {
-		"vessels:drinking_glass", "group:food_melon_slice", "farming:juicer"
+		"farming:juicer", "farming:melon_slice", "",
+		"farming:melon_slice", "", "",
+		"", "", ""
 	},
 	replacements = {
 		{"group:food_juicer", "farming:juicer"},

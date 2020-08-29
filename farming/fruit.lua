@@ -1,4 +1,4 @@
-minetest.override_item("default:apple", {
+minetest.register_craftitem("farming:apple", {
 	description = "Apple",
 	drawtype = "plantlike",
 	tiles = {"farming_apple.png"},
@@ -15,17 +15,6 @@ minetest.override_item("default:apple", {
 		leafdecay = 3, leafdecay_drop = 1, food_apple = 1},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
-
-	after_place_node = function(pos, placer, itemstack)
-		minetest.set_node(pos, {name = "farming:apple", param2 = 1})
-	end,
-
-	after_dig_node = function(pos, oldnode, oldmetadata, digger)
-		if oldnode.param2 == 0 then
-			minetest.set_node(pos, {name = "farming:apple_mark"})
-			minetest.get_node_timer(pos):start(math.random(300, 1500))
-		end
-	end,
 })
 
 minetest.register_craftitem("farming:cherry",{
@@ -199,6 +188,35 @@ minetest.register_craftitem("farming:banana",{
     description = "Bananas",
     inventory_image = "farming_banana.png",
     groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:grapes",{
+    description = "Grapes",
+    inventory_image = "farming_grapes.png",
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:pecan",{
+    description = "Pecan",
+    inventory_image = "farming_pecans.png",
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
 			local player = user

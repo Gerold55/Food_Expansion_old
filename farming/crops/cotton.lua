@@ -4,9 +4,9 @@ local S = farming.intllib
 -- cotton seeds
 minetest.register_node("farming:seed_cotton", {
 	description = S("Cotton Seed"),
-	tiles = {"farming_cotton_seed.png"},
-	inventory_image = "farming_cotton_seed.png",
-	wield_image = "farming_cotton_seed.png",
+	tiles = {"farming_cotton_seeds.png"},
+	inventory_image = "farming_cotton_seeds.png",
+	wield_image = "farming_cotton_seeds.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1, flammable = 4},
 	paramtype = "light",

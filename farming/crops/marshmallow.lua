@@ -10,7 +10,6 @@ local S = farming.intllib
 minetest.register_craftitem("farming:marshmallow_root", {
 	description = S("Marshmallow Root"),
 	inventory_image = "farming_marshmallow_root.png",
-	groups = {food_peanut = 1, flammable = 2},
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:marshmallow_1")
 	end,
@@ -21,7 +20,17 @@ minetest.register_craftitem("farming:marshmallow", {
 	description = S("Marshmallow"),
 	inventory_image = "farming_marshmallow.png",
 	on_use = minetest.item_eat(2),
-	groups = {food_peanut_butter = 1, flammable = 2, vessel = 1},
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "farming:marshmallow",
+	recipe = {
+		"farming:pot", "group:food_sugar", "",
+		"group:water_bucket", "group:food_egg", "",
+		"", "", ""
+	},
+	replacements = {{"farming:pot", "farming:pot"}},
 })
 
 -- marshmallow definition
