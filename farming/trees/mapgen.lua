@@ -1,64 +1,154 @@
+local modname = "farming"
+local modpath = minetest.get_modpath(modname)
+local mg_name = minetest.get_mapgen_setting("mg_name")
+-- internationalization boilerplate
+local S = minetest.get_translator(minetest.get_current_modname())
 
--- decoration function
-local function register_plant(name, min, max, spawnon, spawnby, num, rarety)
+minetest.register_alias("default:apple_tree", "farming:tree_apple")
 
-	-- do not place on mapgen if no value given (or not true)
-	if not rarety then
-		return
-	end
-
-	-- set rarety value or default to farming.rarety if not a number
-	rarety = tonumber(rarety) or farming.rarety
-
-	minetest.register_decoration({
-		deco_type = "simple",
-		place_on = spawnon or {"default:dirt_with_grass"},
-		sidelen = 16,
-		noise_params = {
-			offset = 0,
-			scale = rarety,
-			spread = {x = 100, y = 100, z = 100},
-			seed = 329,
-			octaves = 3,
-			persist = 0.6
-		},
-		y_min = min,
-		y_max = max,
-		decoration = "farming:" .. name,
-		spawn_by = spawnby,
-		num_spawn_by = num
-	})
-end
-
-
--- add crops to mapgen
-register_plant("gardenwindy", 15, 40, nil, "", -1, farming.garden_windy)
-
-if minetest.get_mapgen_setting("mg_name") == "v6" then
-
-	register_plant("gardenwindy", 1, 20, nil, "group:water", 1, farming.garden_windy)
-else
-	-- v7 maps have a beach so plants growing near water is limited to 6 high
-	register_plant("gardenwindy", 1, 6, nil, "", -1, farming.garden_windy)
-end
-
-if farming.garden_windy then
 minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
-	sidelen = 16,
+	name = "farming:tree_apple",
+	deco_type = "schematic",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 2,
 	noise_params = {
-		offset = 0,
-		scale = tonumber(farming.garden_windy) or farming.rarety,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 760,
-		octaves = 3,
-		persist = 0.6
-	},
-	y_min = 5,
-	y_max = 35,
-	decoration = {"farming:gardenwindy"},
-	spawn_by = "group:tree",
-	num_spawn_by = 1
+			offset = 0.024,
+			scale = 0.015,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+	biomes = {"grassland"},
+	y_min = 2,
+	y_max = 80,
+	schematic = modpath.."/schematics/apple_tree.mts",
+	flags = "place_center_x, place_center_z,  force_placement",
+	rotation = "random",
 })
-end
+
+minetest.register_decoration({
+	name = "farming:tree_apple2",
+	deco_type = "schematic",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 2,
+	noise_params = {
+			offset = 0.024,
+			scale = 0.015,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+	biomes = {"grassland"},
+	y_min = 2,
+	y_max = 80,
+	schematic = modpath.."/schematics/apple_tree2.mts",
+	flags = "place_center_x, place_center_z,  force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+	name = "farming:tree_orange",
+	deco_type = "schematic",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 2,
+	noise_params = {
+			offset = 0.024,
+			scale = 0.015,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+	biomes = {"grassland"},
+	y_min = 2,
+	y_max = 80,
+	schematic = modpath.."/schematics/orange_tree.mts",
+	flags = "place_center_x, place_center_z,  force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+	name = "farming:tree_orange2",
+	deco_type = "schematic",
+	place_on = {"default:dirt_with_grass"},
+	sidelen = 2,
+	noise_params = {
+			offset = 0.024,
+			scale = 0.015,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+	biomes = {"grassland", "snowy_grassland"},
+	y_min = 2,
+	y_max = 80,
+	schematic = modpath.."/schematics/orange_tree2.mts",
+	flags = "place_center_x, place_center_z,  force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+	name = "farming:tree_pomegranate",
+	deco_type = "schematic",
+	place_on = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
+	sidelen = 2,
+	noise_params = {
+			offset = 0.024,
+			scale = 0.015,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+	biomes = {"taiga", "coniferous_forest", "snowy_grassland"},
+	y_min = 2,
+	y_max = 80,
+	schematic = modpath.."/schematics/pomegranate_tree.mts",
+	flags = "place_center_x, place_center_z,  force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+	name = "farming:tree_cinnamon",
+	deco_type = "schematic",
+	place_on = {"default:dirt_with_coniferous_litter"},
+	sidelen = 2,
+	noise_params = {
+			offset = 0.024,
+			scale = 0.015,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+	biomes = {"coniferous_forest"},
+	y_min = 2,
+	y_max = 80,
+	schematic = modpath.."/schematics/cinnamon_tree.mts",
+	flags = "place_center_x, place_center_z,  force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+	name = "farming:tree_paperbark",
+	deco_type = "schematic",
+	place_on = {"default:dirt_with_coniferous_litter"},
+	sidelen = 2,
+	noise_params = {
+			offset = 0.024,
+			scale = 0.015,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+	biomes = {"coniferous_forest"},
+	y_min = 2,
+	y_max = 80,
+	schematic = modpath.."/schematics/paper_tree.mts",
+	flags = "place_center_x, place_center_z,  force_placement",
+	rotation = "random",
+})
