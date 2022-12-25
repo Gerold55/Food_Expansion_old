@@ -631,6 +631,7 @@ farming.pumpkin = true
 farming.raspberry = true
 farming.blueberry = true
 farming.peanut = true
+farming.rice = true
 farming.garlic = true
 farming.onion = true
 farming.pepper = true
@@ -676,7 +677,7 @@ end
 dofile(farming.path.."/soil.lua")
 dofile(farming.path.."/hoes.lua")
 dofile(farming.path.."/grass.lua")
-dofile(farming.path.."/fruit.lua")
+--dofile(farming.path.."/fruit.lua")
 dofile(farming.path.."/overrides.lua")
 dofile(farming.path.."/decoration.lua")
 dofile(farming.path.."/condiments.lua")
@@ -699,7 +700,6 @@ dofile(farming.path.."/trees/abm.lua")
 dofile(farming.path.."/trees/bamboo.lua")
 dofile(farming.path.."/trees/itemreg.lua")
 dofile(farming.path.."/trees/framework.lua")
-dofile(farming.path.."/trees/trees.lua")
 dofile(farming.path.."/trees/mapgen.lua")
 
 
@@ -755,6 +755,7 @@ ddoo("ginger.lua", farming.ginger)
 ddoo("mustard.lua", farming.mustard)
 ddoo("sweet_potato.lua", farming.sweet_potato)
 ddoo("zucchini.lua", farming.zucchini)
+ddoo("rice.lua", farming.rice)
 ddoo("sweet_melon.lua", farming.sweet_melon)
 
 dofile(farming.path.."/food.lua")

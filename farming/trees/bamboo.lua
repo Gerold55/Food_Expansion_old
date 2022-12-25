@@ -113,7 +113,7 @@ minetest.register_decoration ({
 		octaves = 3,
 		persist = 0.65,
 		},
-	biomes = {"grassland"},
+	biomes = {"savanna"},
 	y_min = 2,
 	y_max = 20,
 	schematic = farming.bambootree,

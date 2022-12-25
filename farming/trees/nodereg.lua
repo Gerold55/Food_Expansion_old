@@ -1,3 +1,46 @@
+minetest.register_alias("farming:fruit_apple", "farming:apple")
+minetest.register_alias("farming:fruit_cherry", "farming:cherry")
+minetest.register_alias("farming:fruit_peach", "farming:peach")
+minetest.register_alias("farming:fruit_pomegranate", "farming:pomegranate")
+minetest.register_alias("farming:fruit_apricot", "farming:apricot")
+minetest.register_alias("farming:fruit_cinnamon", "farming:cinnamon")
+minetest.register_alias("farming:fruit_avocado", "farming:avocado")
+minetest.register_alias("farming:fruit_fig", "farming:fig")
+minetest.register_alias("farming:fruit_breadfruit", "farming:banana")
+minetest.register_alias("farming:fruit_almond", "farming:almond")
+minetest.register_alias("farming:fruit_cashew", "farming:cashew")
+minetest.register_alias("farming:fruit_date", "farming:date")
+minetest.register_alias("farming:fruit_dragonfruit", "farming:dragonfruit")
+minetest.register_alias("farming:fruit_durian", "farming:durian")
+minetest.register_alias("farming:fruit_guava", "farming:guava")
+minetest.register_alias("farming:fruit_hazelnut", "farming:hazelnut")
+minetest.register_alias("farming:fruit_grapefruit", "farming:grapefruit")
+minetest.register_alias("farming:fruit_gooseberry", "farming:gooseberry")
+minetest.register_alias("farming:fruit_jackfruit", "farming:jackfruit")
+minetest.register_alias("farming:fruit_coconut", "farming:coconut")
+minetest.register_alias("farming:fruit_candlenut", "farming:candlenut")
+minetest.register_alias("farming:fruit_lemon", "farming:lemon")
+minetest.register_alias("farming:fruit_lychee", "farming:lychee")
+minetest.register_alias("farming:fruit_olives", "farming:olives")
+minetest.register_alias("farming:fruit_nutmeg", "farming:nutmeg")
+minetest.register_alias("farming:fruit_mango", "farming:mango")
+minetest.register_alias("farming:fruit_orange", "farming:orange")
+minetest.register_alias("farming:fruit_papaya", "farming:papaya")
+minetest.register_alias("farming:fruit_passionfruit", "farming:passionfruit")
+minetest.register_alias("farming:fruit_pecan", "farming:pecan")
+minetest.register_alias("farming:fruit_persimmon", "farming:persimmon")
+minetest.register_alias("farming:fruit_pistachio", "farming:pistachio")
+minetest.register_alias("farming:fruit_plum", "farming:plum")
+minetest.register_alias("farming:fruit_rambutan", "farming:rambutan")
+minetest.register_alias("farming:fruit_soursop", "farming:soursop")
+minetest.register_alias("farming:fruit_starfruit", "farming:starfruit")
+minetest.register_alias("farming:fruit_tamarind", "farming:tamarind")
+minetest.register_alias("farming:fruit_vanillabean", "farming:vanillabean")
+minetest.register_alias("farming:fruit_walnut", "farming:walnut")
+minetest.register_alias("farming:fruit_peppercorn", "farming:peppercorn")
+minetest.register_alias("farming:fruit_spiderweb", "farming:spiderweb")
+minetest.register_alias("farming:fruit_grapes", "farming:grapes")
+
 minetest.register_node("farming:dev", {
 	description = "dev",
 	tiles = {"log2_mid.png",
@@ -211,17 +254,18 @@ minetest.register_node("farming:log_paperbark", {
 })
 
 --  --  --  --  --  --  --  Fruits
-local fruit_names = {"cherry","pomegranate","peach","apricot","cinnamon","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","olives","nutmeg","maple","mango","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppeprcorn","pawpaw","paperbark","spiderweb","orange","grapes"}
+local fruit_names = {"cherries","pomegranate","peach","apricot","cinnamon","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","olives","nutmeg","maple","mango","orange","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppercorn","paperbark","spiderweb","grapes"}
 for k,v in ipairs(fruit_names)do 
 	minetest.register_node("farming:fruit_"..v,{
 		description = v,
 		tiles = {"fruit_"..v..".png"},
 		drawtype = "plantlike",
+		inventory_image = "farming_"..v..".png",
 		waving = 1,
 		walkable = false,
 		paramtype = "light",
-		paramtype2 = "wallmounted",
 		is_ground_content = true,
+		on_use = minetest.item_eat(2),
 		groups = {choppy=3, not_in_creative_inventory = 1, oddly_breakable_by_hand = 1, old_expansion_fruit = 2, leafdecay = 3, leafdecay_drop = 1, attached_node = 1},
 		on_construct = function(pos)
 			minetest.get_meta(pos):set_string("type", v)
@@ -232,7 +276,7 @@ for k,v in ipairs(fruit_names)do
 				minetest.set_node(pos, {name = "farming:pod"})
 				meta:set_string("type",type)
 				pos.y = pos.y - 0.2;
-				minetest.add_item(pos,{name="farming:"..type, count = 3})
+				minetest.add_item(pos,{name="farming:"..v, count = 1})
 		
 		end
 	})
@@ -288,10 +332,8 @@ for k,v in ipairs(fruit_names)do
 				minetest.place_schematic({x = pos.x - 2, y = pos.y, z = pos.z - 2},old_expansion.tree_rand(),"random",_,false)
 				local pods = minetest.find_nodes_in_area({x = pos.x - 2, y = pos.y, z = pos.z - 2},{x = pos.x + 2, y = pos.y + 7, z = pos.z + 2}, {"farming:pod"})
 				local trunk = minetest.find_nodes_in_area({x = pos.x - 2, y = pos.y, z = pos.z - 2},{x = pos.x + 2, y = pos.y + 7, z = pos.z + 2}, {"farming:log_paperbark"})
-				if(#trunk > 2 and math.random(100) > 49)then
-					for o = 1, #trunk, 1 do
-						minetest.set_node(trunk[o], {name = "farming:log_cinnamon"})
-					end
+				for o = 1, #trunk, 1 do
+					minetest.set_node(trunk[o], {name = "farming:log_"..v})
 				end
 				if(type(pods) == "table" and #pods > 0)then
 					for n = 1, #pods, 1 do
@@ -313,7 +355,7 @@ for k,v in ipairs(fruit_names)do
 	local trunkList = {}
 
 	for _, t in ipairs(old_expansion.types.logs) do
-		table.insert(trunkList, "farming:log_"..t)
+		table.insert(trunkList, "farming:log_"..v)
 	end
 
 	local leavesList = {"farming:fruit_"..v}
@@ -361,6 +403,7 @@ local old_expansion_dirtbars_tabs = {{
 		{0.0625, -0.5, -0.1875, 0.3125, -0.375, 0.25}, -- NodeBox3
 	}
 }}
+
 for k,v in ipairs(old_expansion_dirtbars) do
 	minetest.register_node("farming:dirt_culinary_"..v,{
 		description = v.." Soilent",
@@ -392,7 +435,281 @@ for k,v in ipairs(old_expansion_dirtbars) do
 			else end
 		end
 	})
+	
+minetest.register_craftitem("farming:apple", {
+	description = "Apple",
+	drawtype = "plantlike",
+	tiles = {"farming_apple.png"},
+	inventory_image = "farming_apple.png",
+	drop = "farming:"..k,
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-3 / 16, -7 / 16, -3 / 16, 3 / 16, 4 / 16, 3 / 16}
+	},
+	groups = {fleshy = 3, dig_immediate = 3, flammable = 2,
+		leafdecay = 3, leafdecay_drop = 1, food_apple = 1},
+	on_use = minetest.item_eat(2),
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_craftitem("farming:cherries",{
+    description = "Cherries",
+    tiles = {"farming_cherry.png"},
+	inventory_image = "farming_cherries.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+	on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:avocado",{
+    description = "Avocado",
+    tiles = {"farming_avocado.png"},
+	inventory_image = "farming_avocado.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+	on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:pear",{
+    description = "Pear",
+    tiles = {"farming_pear.png"},
+	inventory_image = "farming_pear.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+	on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:kiwi",{
+    description = "Kiwi",
+    tiles = {"farming_kiwi.png"},
+	inventory_image = "farming_kiwi.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+	on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:lemon",{
+    description = "Lemon",
+    tiles = {"farming_lemon.png"},
+	inventory_image = "farming_lemon.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1}
+})
+
+minetest.register_craftitem("farming:cinnamon",{
+    description = "Cinnamon",
+    inventory_image = "cinnamon.png"
+})
+
+minetest.register_craftitem("farming:coconut",{
+    description = "Coconut",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
+    groups = {fruity = 1}
+})
+
+minetest.register_craftitem("farming:orange",{
+    description = "Orange",
+    tiles = {"farming_orange.png"},
+	inventory_image = "farming_orange.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:olives",{
+    description = "Olives",
+    tiles = {"farming_olives.png"},
+	inventory_image = "farming_olives.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:pomegranate",{
+    description = "Pomegranate",
+    tiles = {"fruit_pomegranate.png"},
+	inventory_image = "fruit_pomegranate.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:apricot",{
+    description = "Apricot",
+    tiles = {"farming_apricot.png"},
+	inventory_image = "farming_apricot.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:mango",{
+    description = "Mango",
+    tiles = {"farming_mango.png"},
+	inventory_image = "farming_mango.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:banana",{
+    description = "Bananas",
+    tiles = {"farming_banana.png"},
+	inventory_image = "farming_banana.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_node("farming:banana_leaves",{
+    description = "Banana Leaves",
+    tiles = {"farming_banana_leaves.png"},
+    groups = {choppy = 1},
+})
+
+minetest.register_node("farming:banana_trunk",{
+    description = "Banana Trunk",
+    tiles = {"farming_banana_trunk.png"},
+    groups = {choppy = 1},
+})
+
+minetest.register_craftitem("farming:peach",{
+    description = "Peach",
+    tiles = {"farming_peach.png"},
+	inventory_image = "farming_peach.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:grapes",{
+    description = "Grapes",
+    tiles = {"farming_grapes.png"},
+	inventory_image = "farming_grapes.png",
+	drop = "farming:"..k,
+    groups = {fruity = 1},
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
+
+minetest.register_craftitem("farming:pecan",{
+    description = "Pecan",
+    tiles = {"farming_pecan.png"},
+	inventory_image = "farming_pecan.png",
+	drop = "farming:"..k,
+    on_use = function(itemstack,user,pointed_thing)
+        if(hbhunger)then
+			local player = user
+			hbhunger.heal(player)
+			itemstack:take_item()
+            else 
+        end
+        return itemstack
+    end
+})
 end
+
 minetest.register_node("farming:dirt_culinary_dried",{
 	description = "Dried Soilent",
 	tiles = {"ws_rocky_dirt.png"},
