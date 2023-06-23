@@ -1,8 +1,12 @@
-minetest.register_craftitem("farming:apple", {
+local fruit_names = {"cherry","pomegranate","peach","apricot","cinnamon","apple","avocado","fig","breadfruit","banana","almond","cashew","date","dragonfruit","durian","guava","hazelnut","grapefruit","gooseberry","jackfruit","coconut","candlenut","lemon","lime","lychee","olives","nutmeg","maple","mango","orange","papaya","passionfruit","pecan","persimmon","pistachio","plum","rambutan","soursop","starfruit","tamarind","vanillabean","walnut","peppeprcorn","pawpaw","paperbark","spiderweb","orange","grapes"}
+for k,v in ipairs(fruit_names)do 
+
+minetest.register_node("farming:apple", {
 	description = "Apple",
 	drawtype = "plantlike",
-	tiles = {"farming_apple.png"},
-	inventory_image = "farming_apple.png",
+	tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
@@ -17,9 +21,11 @@ minetest.register_craftitem("farming:apple", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_craftitem("farming:cherry",{
+minetest.register_node("farming:cherry",{
     description = "Cherry",
-    inventory_image = "farming_cherries.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
 	on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -32,9 +38,11 @@ minetest.register_craftitem("farming:cherry",{
     end
 })
 
-minetest.register_craftitem("farming:avocado",{
+minetest.register_node("farming:avocado",{
     description = "Avocado",
-    inventory_image = "farming_avocado.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
 	on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -47,9 +55,11 @@ minetest.register_craftitem("farming:avocado",{
     end
 })
 
-minetest.register_craftitem("farming:pear",{
+minetest.register_node("farming:pear",{
     description = "Pear",
-    inventory_image = "farming_pear.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
 	on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -62,9 +72,11 @@ minetest.register_craftitem("farming:pear",{
     end
 })
 
-minetest.register_craftitem("farming:kiwi",{
+minetest.register_node("farming:kiwi",{
     description = "Kiwi",
-    inventory_image = "farming_kiwi.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
 	on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -77,9 +89,11 @@ minetest.register_craftitem("farming:kiwi",{
     end
 })
 
-minetest.register_craftitem("farming:lemon",{
+minetest.register_node("farming:lemon",{
     description = "Lemon",
-    inventory_image = "farming_lemon.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1}
 })
 
@@ -88,15 +102,19 @@ minetest.register_craftitem("farming:cinnamon",{
     inventory_image = "cinnamon.png"
 })
 
-minetest.register_craftitem("farming:coconut",{
+minetest.register_node("farming:coconut",{
     description = "Coconut",
-    inventory_image = "farming_coconut.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1}
 })
 
-minetest.register_craftitem("farming:orange",{
+minetest.register_node("farming:orange",{
     description = "Orange",
-    inventory_image = "farming_orange.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -109,9 +127,11 @@ minetest.register_craftitem("farming:orange",{
     end
 })
 
-minetest.register_craftitem("farming:olives",{
+minetest.register_node("farming:olives",{
     description = "Olives",
-    inventory_image = "farming_olives.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -124,9 +144,11 @@ minetest.register_craftitem("farming:olives",{
     end
 })
 
-minetest.register_craftitem("farming:pomegranate",{
+minetest.register_node("farming:pomegranate",{
     description = "Pomegranate",
-    inventory_image = "farming_pomegranate.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -139,9 +161,11 @@ minetest.register_craftitem("farming:pomegranate",{
     end
 })
 
-minetest.register_craftitem("farming:apricot",{
+minetest.register_node("farming:apricot",{
     description = "Apricot",
-    inventory_image = "farming_apricot.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -154,9 +178,11 @@ minetest.register_craftitem("farming:apricot",{
     end
 })
 
-minetest.register_craftitem("farming:pear",{
+minetest.register_node("farming:pear",{
     description = "Pear",
-    inventory_image = "farming_pear.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -169,9 +195,11 @@ minetest.register_craftitem("farming:pear",{
     end
 })
 
-minetest.register_craftitem("farming:mango",{
+minetest.register_node("farming:mango",{
     description = "Mango",
-    inventory_image = "farming_mango.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -184,9 +212,11 @@ minetest.register_craftitem("farming:mango",{
     end
 })
 
-minetest.register_craftitem("farming:banana",{
+minetest.register_node("farming:banana",{
     description = "Bananas",
-    inventory_image = "farming_banana.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -199,9 +229,11 @@ minetest.register_craftitem("farming:banana",{
     end
 })
 
-minetest.register_craftitem("farming:grapes",{
+minetest.register_node("farming:grapes",{
     description = "Grapes",
-    inventory_image = "farming_grapes.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     groups = {fruity = 1},
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
@@ -214,9 +246,11 @@ minetest.register_craftitem("farming:grapes",{
     end
 })
 
-minetest.register_craftitem("farming:pecan",{
+minetest.register_node("farming:pecan",{
     description = "Pecan",
-    inventory_image = "farming_pecans.png",
+    tiles = {"farming_"..k..".png"},
+	inventory_image = "farming_"..k..".png",
+	drop = "farming:"..k,
     on_use = function(itemstack,user,pointed_thing)
         if(hbhunger)then
 			local player = user
@@ -227,3 +261,5 @@ minetest.register_craftitem("farming:pecan",{
         return itemstack
     end
 })
+
+end
